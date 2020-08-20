@@ -1,0 +1,97 @@
+.products {
+  .productsBanner {
+    background-image: url('https://raw.githubusercontent.com/TartarTuna/EC_images/master/subscribe.jpg');
+    height: 500px;
+    background-position: center center;
+    background-size: cover;
+  }
+
+  .categories {
+    margin-bottom: 80px;
+
+    .categoryItem {
+      background-color: $primary;
+      border-radius: 50px;
+      margin-right: 30px;
+
+      a {
+        display: inline-block;
+        padding: 5px 30px;
+        color: #ffffff;
+        font-size: 16px;
+        line-height: 20px;
+      }
+      a:hover {
+        background-color: $secondary;
+        color: $primary;
+        border-radius: 50px;
+      }
+    }
+  }
+
+  .productList {
+    .productCards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      .productCard {
+        margin-bottom: 80px;
+        display: flex;
+        flex-direction: column;
+        width: 31%;
+        text-align: center;
+        justify-content: center;
+
+        .productInfo {
+          cursor: pointer;
+        }
+
+        .productImg {
+          margin-bottom: 16px;
+          background-size: cover;
+          background-position: center;
+          height: 250px;
+          border-radius: 10px;
+        }
+
+        .productTitle {
+          margin-bottom: 16px;
+          color: #212121;
+          font-weight: bold;
+          line-height: 24px;
+        }
+
+        .productPrice {
+          margin-bottom: 24px;
+
+          .delPrice {
+            margin-right: 8px;
+            color: #555555;
+            font-size: 12px;
+          }
+
+          .salePrice {
+            color: #691b5a;
+          }
+        }
+
+        .addCartBtn {
+          display: inline-block;
+          margin: 0 auto;
+          padding: 5px 32px;
+          border-radius: 50px;
+          color: #555555;
+          cursor: pointer;
+          font-size: 16px;
+          background-color: #EBEBEB;
+      
+          &:hover {
+            background-color: #98c480;
+            border-radius: 50px;
+          }
+        }
+      }
+    }
+  }
+}

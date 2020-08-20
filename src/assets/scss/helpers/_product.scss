@@ -1,0 +1,32 @@
+.moreProducts {
+  .moreProductsTitle {
+    &::before {
+      position: absolute;
+      content: '';
+      top: 18px;
+      left: 425px;
+      width: 60px;
+      height: 2px;
+      background-color: $primary;
+
+      @media (max-width:768px) {
+        left: 90px;
+      }
+    }
+
+    &::after {
+      position: absolute;
+      content: '';
+      top: 18px;
+      right: 425px;
+      width: 60px;
+      height: 2px;
+      background-color: $primary;
+
+      @media (max-width:768px) {
+        right: 90px;
+      }
+    }
+
+  }
+}

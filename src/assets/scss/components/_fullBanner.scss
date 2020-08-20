@@ -1,0 +1,37 @@
+.banner {
+  background-image: url('https://raw.githubusercontent.com/TartarTuna/EC_images/master/banner.jpg');
+  height: 720px;
+  background-position: center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.slogan {
+  font-size: 64px;
+  font-weight: bold;
+  line-height: 100px;
+  color: #518670;
+  text-align: left;
+}
+
+@media (max-width:768px) {
+  .banner {
+    height: 394px;
+  }
+  
+  .container {
+    max-width: 672px;
+  }
+  
+  .slogan {
+    font-size: 32px;
+    line-height: 64px;
+  }
+  
+}

@@ -1,0 +1,7 @@
+.footer {
+  .footerLogo, .footerLink {
+    &:hover {
+      color: $secondary;
+    }
+  }
+}

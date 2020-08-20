@@ -1,0 +1,18 @@
+.parallax {
+  background: url("https://raw.githubusercontent.com/TartarTuna/EC_images/master/%E6%BB%BE%E5%8B%95%E8%A6%96%E5%B7%AE.jpg")center center no-repeat;
+  min-height: 400px;
+  background-attachment: fixed;
+  background-size: cover;
+
+  .callActive {
+    bottom: 25%;
+
+    .subscribeBtn {
+      &:hover {
+        color: $primary;
+        background-color: $secondary;
+        border: $secondary;
+      }
+    }
+  }
+}

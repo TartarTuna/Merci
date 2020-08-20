@@ -1,0 +1,79 @@
+.breadcrumb-item + .breadcrumb-item::before {
+    content: ">";
+    color: $text;
+}
+
+.returnIcon {
+    vertical-align: middle;
+}
+
+
+.productDetailCollapse {
+    .collapseHeader {
+        padding: 18px 16px 19px 16px;
+    }
+    
+
+    .totalSpan {
+        &.active {
+            display: none;
+        }
+    }
+
+    .collapse {
+        .card-body {
+            li img {
+                max-width: 48px;
+                height: 48px;
+                object-fit: cover;
+            }
+        }
+    }
+}
+
+.customerInfo {
+    .formGroupLabel {
+        font-size: 20px;
+        line-height: 24px;
+    }
+}
+
+
+//check Box
+// input[type="checkbox"] + label {
+//     display: block;
+//     cursor: pointer;
+// }
+
+// input[type="checkbox"] {
+//     display: none;
+// }
+
+// input[type=checkbox] + label::before {
+//     content: "\2714";
+//     border: 1px solid #000;
+//     border-radius: 10%;
+//     width: 16px;
+//     height: 16px;
+//     padding: 0 3px 0 3px;
+//     margin-right: 4px;
+//     color: transparent;
+//     transition: linear .2s;
+// }
+
+// input[type="checkbox"]:checked + label:before {
+//     background-color: $primary;
+//     border-color: $primary;
+//     color: #fff;
+// }
+
+//customerInfoCheck
+.infoSpan, .shipSpan {
+    overflow : hidden;
+    text-overflow : ellipsis;
+    white-space : nowrap;
+
+    &.active {
+        display: none;
+    }
+}

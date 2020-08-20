@@ -1,0 +1,18 @@
+.about {
+  .storyImg {
+    background-image: url(https://raw.githubusercontent.com/TartarTuna/EC_images/master/story.jpg);
+    top: 0;
+    bottom: 0;
+  }
+
+  @media (max-width:768px) {
+    .storyImg {
+        height: 300px;
+      }
+
+    .storyTxt {
+      margin-top: 324px;
+    }
+  }
+
+}

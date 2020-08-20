@@ -1,0 +1,145 @@
+//fonts
+.fz-1 {
+    font-size: 8px;
+}
+
+.fz-2 {
+    font-size: 16px;
+}
+
+.fz-3 {
+    font-size: 24px;
+}
+
+.fz-4 {
+    font-size: 32px;
+}
+
+.fz-6 {
+    font-size: 48px;
+}
+
+.fz-2-1 {
+    font-size: 18px;
+}
+
+@media (min-width: 768px) {
+  .fz-md-2 {
+    font-size: 16px;
+  }
+
+  .fz-md-3 {
+    font-size: 24px;
+  }
+
+  .fz-md-4 {
+    font-size: 32px;
+  }
+}
+
+//line-height
+.lh-1 {
+    line-height: 40px;
+}
+
+.lh-2 {
+  line-height: 26px;
+}
+
+.lh-3 {
+  line-height: 30px;
+}
+
+@media (min-width: 768px) {
+.lh-md-1 {
+    line-height: 40px;
+}
+}
+
+//font-weight
+.fw-bold {
+    font-weight: 700;
+}
+
+
+// color
+.textColor {
+    color: $text;
+}
+
+.textLight {
+    color: $secondary;
+}
+
+.primary {
+    color: $primary;
+}
+
+.lightest {
+    color: $lightest;
+}
+
+.smallLink {
+    color: $smallLink;
+}
+
+.placeHolderColor {
+    color: #00000098;
+}
+
+@media (min-width: 768px) {
+  .text-md-primary {
+    color: $primary;
+  }
+}
+
+.bg-light {
+    background-color: #F2F2F2;
+}
+
+.bg-cover{
+    background-size: cover;
+    background-position: center center;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.w-30 {
+  width: 30%;
+}
+
+.w-40 {
+  width: 40%;
+}
+
+.rounded-50 {
+  border-radius: 50px;
+}
+
+.bd-round-4 {
+  border-radius: 4px solid #00000060;
+}
+
+
+// 按鈕
+.fillBtn {
+    display: inline-block;
+    background-color: $primary;
+    color: #fff;
+    font-size: 16px;
+    line-height: 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all .3s;
+
+    &:hover {
+        background-color: $secondary;
+        color: $primary;
+    }
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+}

@@ -1,0 +1,46 @@
+.indexAbout {
+  .aboutTxt {
+    .moreBtn {
+      color: $smallLink;
+    }
+  }
+  .aboutPhoto {
+    z-index: -1;
+    
+    .aboutImg {
+      height: 357px;
+
+      @media (min-width: 768px) {
+        height: 650px;
+      }
+    }
+  }
+
+  .aboutTxt {
+    position: relative;
+    width: 350px;
+    z-index: -1;
+
+      @media (min-width: 768px) {
+        width: 450px;
+      }
+
+    &::before {
+      position: absolute;
+      content: '';
+      width: 400px;
+      height: 370px;
+      background-color: $lightest;
+      z-index: -100;
+      top: -20px;
+      left: -25px;
+
+      @media (min-width: 768px) {
+        width: 600px;
+        height: 480px;
+        left: -75px;
+        top: -84px;
+      }
+    }
+  }
+}

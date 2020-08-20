@@ -1,0 +1,45 @@
+.productFilterWrap {
+  border-top: 1px solid $secondary;
+
+  .photoContainer {
+    position: relative;
+  }
+  
+  .filterImage {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    transition: .5s ease;
+    backface-visibility: hidden;
+  }
+  
+  .middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .photoContainer:hover .filterImage {
+    opacity: 0.3;
+  }
+  
+  .photoContainer:hover .middle {
+    opacity: 1;
+  }
+  
+  .photoText {
+    color: $primary;
+    border-top: 2px solid $primary;
+    border-bottom: 2px solid $primary;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 16px 32px;
+  }
+}
