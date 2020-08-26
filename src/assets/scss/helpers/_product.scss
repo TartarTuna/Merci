@@ -30,3 +30,19 @@
 
   }
 }
+
+.innerBanner {
+  background-image: url(https://raw.githubusercontent.com/TartarTuna/EC_images/master/contentImg.jpg);
+  background-position: center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 640px;
+}
+
+.featureIcon {
+  max-width: 200px;
+  max-height: 200px;
+}

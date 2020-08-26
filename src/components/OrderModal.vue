@@ -1,5 +1,5 @@
 <template>
-  <div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -33,19 +33,21 @@ export default {
       }
     }
   },
-  getOrder (id) {
-    const api = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/admin/ec/orders/${id}`
-    this.$http.get(api)
-      .then(res => {
-        this.order = res.data.data
-        $('#orderModal').modal('show')
-      })
-      .catch(() => {
-        Toast.fire({
-          title: '無法取得資料，稍後再試',
-          icon: 'error'
+  methods: {
+    getOrder (id) {
+      const api = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/admin/ec/orders/${id}`
+      this.$http.get(api)
+        .then(res => {
+          this.order = res.data.data
+          $('#orderModal').modal('show')
         })
-      })
+        .catch(() => {
+          Toast.fire({
+            title: '無法取得資料，稍後再試',
+            icon: 'error'
+          })
+        })
+    }
   }
 }
 </script>

@@ -7,7 +7,7 @@
       </router-link>
     </div>
 
-      <a class="hamBtn" href="#">
+      <a class="hamBtn">
         <i class="fas fa-bars"></i>
       </a>
 
@@ -15,7 +15,6 @@
         <li class="navItem"><router-link to="/" class="menu">首頁</router-link></li>
         <li class="navItem"><router-link to="/about" class="menu">關於玫希</router-link></li>
         <li class="navItem"><router-link to="/products" class="menu">產品一覽</router-link></li>
-        <li class="navItem"><router-link to="/starProduct" class="menu">主廚推薦</router-link></li>
       </ul>
 
       <div class="cart">

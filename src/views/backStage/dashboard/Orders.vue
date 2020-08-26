@@ -43,7 +43,7 @@
         </tbody>
       </table>
       <!-- 分頁 -->
-      <Pagination :pages="pagination" @emit-pages="getProducts"></Pagination>
+      <Pagination :pages="pagination" @emit-pages="getOrders"></Pagination>
 
       <!-- Order Modal -->
       <OrderModal ref="orderModal"/>
@@ -54,6 +54,7 @@
 <script>
 import Toast from '../../../utils/toast'
 import Pagination from '../../../components/Pagination'
+import OrderModal from '../../../components/OrderModal'
 
 export default {
   data () {
@@ -63,11 +64,13 @@ export default {
       pagination: {},
       order: {
         user: {}
-      }
+      },
+      isProcessing: false
     }
   },
   components: {
-    Pagination
+    Pagination,
+    OrderModal
   },
   created () {
     this.getOrders()

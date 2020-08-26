@@ -7,11 +7,11 @@
     <div class="container" v-if=" products.length > 0">
       <!-- 分類按鈕 -->
       <section class="categoryBtns">
-        <ul class="categories d-flex justify-content-center">
-          <li class="categoryItem active" >
+        <ul class="categories d-flex flex-column flex-md-row justify-content-center align-items-center text-center">
+          <li class="categoryItem mb-2" >
             <a href="#" @click.prevent="filterCategory = ''" :class="{ active: filterCategory === '' }">所有商品</a>
           </li>
-          <li class="categoryItem active" v-for="item in categories" :key="item">
+          <li class="categoryItem mb-2" v-for="item in categories" :key="item">
             <a href="#" @click.prevent="filterCategory = item" :class="{ active: item === filterCategory }">{{item}}</a>
           </li>
         </ul>
@@ -19,27 +19,34 @@
 
       <!-- 產品列表 -->
       <div class="productList">
-        <ul class="productCards">
-          <li class="productCard" v-for="item in products" :key="item.id">
-            <a class="productInfo" @click="getProduct(item.id)" :disable="status.loadingItem === item.id">
+        <ul class="productCards flex-md-row flex-column">
+          <li class="productCard" v-for="item in filterCategories" :key="item.id">
+            <router-link :to="`/product/${item.id}`" class="productInfo">
               <div class="productImg" :style="{backgroundImage: `url(${item.imageUrl[0]})`}"></div>
-            </a>
-            <p class="productTitle">{{ item.title }}</p>
+            </router-link>
+            <p class="productTitle mt-2 mb-1">{{ item.title }}</p>
             <div class="productPrice">
               <del class="delPrice">原價 ${{ item.origin_price }}</del>
               <span class="salePrice">特價 ${{ item.price }}</span>
             </div>
-            <a class="addCartBtn" @click="addToCart(item.id)">加入購物車</a>
+            <a class="addCartBtn" @click.prevent="addToCart(item.id)" :disabled="isProcessing">
+              <i class="fas fa-spinner fa-spin" v-if="item.id === status.loadingItem"></i>加入購物車
+              </a>
           </li>
         </ul>
       </div>
-    </div>
 
+    <!-- 分頁 -->
+      <div class="d-flex justify-content-center">
+        <Pagination :pages="pagination" @emit-pages="getProducts"></Pagination>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import Toast from '../../utils/toast'
+import Pagination from '../../components/Pagination'
 
 export default {
   data () {
@@ -50,20 +57,26 @@ export default {
       products: [],
       categories: ['果醬', '餅乾', '糕點', '優惠套組'],
       filterCategory: '',
-      isLoading: false
+      isLoading: false,
+      isProcessing: false,
+      pagination: {}
     }
+  },
+  components: {
+    Pagination
   },
   created () {
     this.getProducts()
   },
   methods: {
-    getProducts () {
+    getProducts (page = 1) {
       const api = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/ec/products`
       this.isLoading = true
       this.$http.get(api)
         .then(res => {
           this.products = res.data.data
-          const { categoryName } = this.$router.params
+          this.pagination = res.data.meta.pagination
+          const { categoryName } = this.$route.params
           if (categoryName) {
             this.filterCategory = categoryName
           }
@@ -77,18 +90,48 @@ export default {
           this.isLoading = false
         })
     },
-    computed: {
-      filterCategories () {
-        if (this.filterCategory) {
-          return this.products.filter(item => {
-            const data = item.category
-              .toLowerCase()
-              .includes(this.filterCategory.toLowerCase())
-            return data
-          })
-        }
-        return this.products
+    addToCart (id, quantity = 1) {
+      this.status.loadingItem = id
+      this.isProcessing = true
+      const api = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/ec/shopping`
+      const cart = {
+        product: id,
+        quantity
       }
+      this.$http.post(api, cart)
+        .then(() => {
+          this.$bus.$emit('update-total')
+          Toast.fire({
+            title: '加入購物車成功',
+            icon: 'success'
+          })
+          this.status.loadingItem = ''
+          this.isProcessing = false
+        })
+        .catch((err) => {
+          const errMsg = err.response.data.errors
+          if (errMsg) {
+            Toast.fire({
+              title: `${errMsg}`,
+              icon: 'warning'
+            })
+            this.status.loadingItem = ''
+            this.isProcessing = false
+          }
+        })
+    }
+  },
+  computed: {
+    filterCategories () {
+      if (this.filterCategory) {
+        return this.products.filter(item => {
+          const data = item.category
+            .toLowerCase()
+            .includes(this.filterCategory.toLowerCase())
+          return data
+        })
+      }
+      return this.products
     }
   }
 }

@@ -13,6 +13,9 @@ import {
 } from 'vee-validate'
 import * as rules from 'vee-validate/dist/rules'
 import zhTW from 'vee-validate/dist/locale/zh_TW.json'
+import moneyFilter from './filters/money'
+import dateFilter from './filters/date'
+import './bus'
 
 import App from './App.vue'
 import router from './router'
@@ -37,6 +40,9 @@ Vue.component('ValidationProvider', ValidationProvider)
 Vue.use(VueAxios, axios)
 Vue.use(Vue2Editor)
 Vue.use(VueSweetalert2)
+
+Vue.filter('money', moneyFilter)
+Vue.filter('date', dateFilter)
 
 new Vue({
   router,

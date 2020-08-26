@@ -4,7 +4,7 @@
     <p class="fz-3 fz-md-4 text-primary text-center pb-md-2 pb-0 mb-3">產品分類</p>
   </div>
 
-  <div class=" d-flex flex-column flex-md-row ">
+  <div class=" d-flex flex-column flex-md-row justify-content-center">
     <div class="photoContainer mb-3 mb-md=0 mr-md-4">
       <a href="#" @click.prevent="goCategory('果醬')">
         <img src="https://images.unsplash.com/photo-1590083359275-492f8b29a347?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80" alt="filterImage" class="filterImage">
@@ -43,9 +43,10 @@ export default {
   methods: {
     goCategory (Name) {
       this.$router.push({
-        name: 'products',
+        name: 'Products',
         params: { categoryName: Name }
       })
+      console.log(this.$route.params)
     }
   }
 }

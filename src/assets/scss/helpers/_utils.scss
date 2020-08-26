@@ -56,6 +56,14 @@
 }
 }
 
+.letter-space-1 {
+  letter-spacing: 8px;
+}
+
+.letter-space-2 {
+  letter-spacing: 4px;
+}
+
 //font-weight
 .fw-bold {
     font-weight: 700;
@@ -106,12 +114,60 @@
   width: 100%;
 }
 
+.w-md-20 {
+  @media (min-width:768px) {
+    width: 20px;
+  }
+}
+
 .w-30 {
   width: 30%;
 }
 
+.w-md-30 {
+  @media (min-width: 768px) {
+    width: 30%;
+  }
+}
+
 .w-40 {
   width: 40%;
+}
+
+.w-70 {
+  width: 70%;
+}
+
+.w-md-40 {
+  @media (min-width:768px) {
+    width: 40%;
+  }
+}
+
+.w-md-49 {
+  @media (min-width:768px) {
+    width: 49%;
+  }
+}
+
+.w-md-50 {
+  @media (min-width: 768px) {
+    width: 50%;
+  }
+}
+
+.w-md-80 {
+  @media (min-width:768px) {
+    width: 80%;
+  }
+}
+
+.h-500 {
+  max-height: 500px;
+}
+
+.obj-c {
+  object-fit: cover;
 }
 
 .rounded-50 {
@@ -122,6 +178,14 @@
   border-radius: 4px solid #00000060;
 }
 
+.border-none {
+  border: none;
+}
+
+.cursor-p {
+  cursor: pointer;
+}
+
 
 // 按鈕
 .fillBtn {
@@ -129,8 +193,9 @@
     background-color: $primary;
     color: #fff;
     font-size: 16px;
+    letter-spacing: 2px;
     line-height: 24px;
-    border-radius: 4px;
+    border-radius: 50px;
     cursor: pointer;
     transition: all .3s;
 

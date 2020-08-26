@@ -8,3 +8,13 @@
     height: 300px;
   }
 }
+
+.relatedImgLink {
+  cursor: pointer;
+}
+
+.relatedCards {
+    @media (min-width:768px) {
+      margin-right: -24px;
+    }
+}
