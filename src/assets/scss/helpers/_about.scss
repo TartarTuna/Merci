@@ -1,18 +1,62 @@
 .about {
   .storyImg {
-    background-image: url(https://raw.githubusercontent.com/TartarTuna/EC_images/master/story.jpg);
-    top: 0;
-    bottom: 0;
-  }
+    background-image: url(https://hexschool-api.s3.us-west-2.amazonaws.com/custom/gMlDmxx7wUtqhRaSKLwLJPPhewEZvhNUYeryVxXSWzfWNWTPPon5AJu5TH1LUIfmm5wZ54C1NxWBx2p4NpjvGUsIgXFJ9fbqp8zM3lYsGo56WuL3GlWMXDFx7f1lin05.jpg);
+    min-height: 600px;
 
-  @media (max-width:768px) {
-    .storyImg {
-        height: 300px;
-      }
-
-    .storyTxt {
-      margin-top: 324px;
+    @media (max-width: 768px) {
+      height: 300px;
     }
   }
 
+  .storyTxt {
+    background-color: $lightOp;
+    
+    @media (max-width: 768px) {
+      margin-top: 624px;
+      background-color: #fff;
+    }
+  }
+
+  .featureDetailUp {
+    margin-right: -56px;
+    z-index: 0;
+
+    @media (max-width: 768px) {
+      margin-right: 0;
+    }
+  }
+
+  .featureDetailDown {
+    margin-left: -56px;
+    z-index: 0;
+
+    @media (max-width: 768px) {
+      margin-left: 0;
+    }
+  }
+
+  .featureImgWrap {
+    z-index: -10;
+  }
+
+  .customerFeedback {
+    background-image: url(https://hexschool-api.s3.us-west-2.amazonaws.com/custom/4AxMmtmje0qtvY7pnMrVavZcIHRVGGQfJZxlZEzZUlVdXSVBKyiKAmkZngckPbuxEAqx0sHPRjbWEbvIdSYvlD3n0l5ic2ahLMnoo6DvQ9OEbzJUxlSYTDzM6ym7XKxF.jpg);
+    height: 450px;
+    
+    @media (max-width: 768px) {
+      height: 550px;
+    }
+    
+    @media (max-width: 375px) {
+      height: 600px;
+    }
+  }
+
+  .swiper-button-next {
+    color: $primary;
+  }
+
+  .swiper-button-prev {
+    color: $primary;
+  }
 }

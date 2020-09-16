@@ -89,22 +89,6 @@
                                 </div>
                             </div>
                             <div class="form-group d-flex flex-column flex-md-row d-block flex-wrap">
-                                <!-- <div class="d-flex flex-column flex-md-row w-100">
-                                    <select class="conturySelector p-2 w-100 bd-round-4 mb-1 mr-md-1 placeHolderColor"
-                                        id="conturySelector">
-                                        <option disabled selected>國家</option>
-                                        <option>臺灣</option>
-                                        <option>法國</option>
-                                        <option>日本</option>
-                                    </select>
-                                    <select class="conturySelector p-2 w-100 bd-round-4 mb-1 placeHolderColor"
-                                        id="conturySelector">
-                                        <option disabled selected>城市</option>
-                                        <option>台北</option>
-                                        <option>巴黎</option>
-                                        <option>東京</option>
-                                    </select>
-                                </div> -->
                                 <div class="form-group w-100">
                                   <validation-provider rules="required" v-slot="{ errors, classes}">
                                     <label class="formGroupLabel" for="exampleInputAddress1"></label>
@@ -145,7 +129,7 @@
 </template>
 
 <script>
-import Toast from '../../utils/toast'
+import Toast from '@/utils/toast'
 
 export default {
   data () {

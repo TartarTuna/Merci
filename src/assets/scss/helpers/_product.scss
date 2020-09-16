@@ -4,45 +4,21 @@
       position: absolute;
       content: '';
       top: 18px;
-      left: 425px;
+      left: -80px;
       width: 60px;
       height: 2px;
       background-color: $primary;
-
-      @media (max-width:768px) {
-        left: 90px;
-      }
     }
 
     &::after {
       position: absolute;
       content: '';
       top: 18px;
-      right: 425px;
+      right: -80px;
       width: 60px;
       height: 2px;
       background-color: $primary;
-
-      @media (max-width:768px) {
-        right: 90px;
-      }
     }
 
   }
-}
-
-.innerBanner {
-  background-image: url(https://raw.githubusercontent.com/TartarTuna/EC_images/master/contentImg.jpg);
-  background-position: center center;
-  background-size: cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  height: 640px;
-}
-
-.featureIcon {
-  max-width: 200px;
-  max-height: 200px;
 }

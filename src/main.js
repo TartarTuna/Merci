@@ -7,6 +7,8 @@ import 'vue-loading-overlay/dist/vue-loading.css'
 import 'bootstrap'
 import Vue2Editor from 'vue2-editor'
 import VueSweetalert2 from 'vue-sweetalert2'
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'swiper/css/swiper.css'
 import {
   ValidationObserver,
   ValidationProvider, configure, localize, extend
@@ -40,6 +42,7 @@ Vue.component('ValidationProvider', ValidationProvider)
 Vue.use(VueAxios, axios)
 Vue.use(Vue2Editor)
 Vue.use(VueSweetalert2)
+Vue.use(VueAwesomeSwiper)
 
 Vue.filter('money', moneyFilter)
 Vue.filter('date', dateFilter)

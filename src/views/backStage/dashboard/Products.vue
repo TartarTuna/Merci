@@ -66,10 +66,10 @@
 </template>
 
 <script>
-import Toast from '../../../utils/toast'
-import Pagination from '../../../components/Pagination'
-import ProductModal from '../../../components/ProductModal'
-import DelProductModal from '../../../components/DelProductModal'
+import Toast from '@/utils/toast'
+import Pagination from '@/components/Pagination'
+import ProductModal from '@/components/backed/ProductModal'
+import DelProductModal from '@/components/backed/DelProductModal'
 /* global $ */
 
 export default {
@@ -128,7 +128,7 @@ export default {
           this.$refs.productModal.getSingleProduct(item.id) // 用取得單一產品資訊的函式取得資料
           break
         case 'deleteProduct':
-          this.tempProduct = Object.assign({}, item) // 用淺拷貝拷貝item
+          this.tempProduct = { ...item } // 用淺拷貝拷貝item
           $('#delModal').modal('show')
           break
         default:

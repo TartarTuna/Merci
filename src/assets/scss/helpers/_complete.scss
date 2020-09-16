@@ -1,14 +1,6 @@
 .donePageImg {
-  top: 0;
-  bottom: 0;
-  right: 0;
   background-image: url(https://images.unsplash.com/photo-1567708233986-87de01b33b62?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80);
-}
-
-.doneH1 {
-  padding-top: 212px;
-}
-
-.doneP {
-  padding-bottom: 167px;
+  height: 350px;
+  background-attachment: fixed;
+  background-size: cover;
 }

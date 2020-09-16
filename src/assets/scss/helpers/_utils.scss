@@ -35,6 +35,10 @@
   .fz-md-4 {
     font-size: 32px;
   }
+
+  .fz-md-2-1 {
+    font-size: 18px;
+  }
 }
 
 //line-height
@@ -43,7 +47,7 @@
 }
 
 .lh-2 {
-  line-height: 26px;
+  line-height: 28px;
 }
 
 .lh-3 {
@@ -64,11 +68,22 @@
   letter-spacing: 4px;
 }
 
-//font-weight
-.fw-bold {
-    font-weight: 700;
+.letter-space-3 {
+  letter-spacing: 2px;
 }
 
+//font-weight
+.fw-bold {
+    font-weight: 500;
+}
+
+.fw-300 {
+  font-weight: 300;
+}
+
+.fw-400 {
+  font-weight: 400;
+}
 
 // color
 .textColor {
@@ -101,8 +116,22 @@
   }
 }
 
-.bg-light {
-    background-color: #F2F2F2;
+.bg-opacity {
+    background-color: #ffffff5d;
+}
+
+.bg-lightOp {
+  background-color: #d1e6dfd1;
+}
+
+.bg-lightest {
+  background-color: $lightest;
+}
+
+.bg-pure {
+  @media (max-width: 768px) {
+    background-color: #ffffff;
+  }
 }
 
 .bg-cover{
@@ -115,8 +144,14 @@
 }
 
 .w-md-20 {
-  @media (min-width:768px) {
-    width: 20px;
+  @media (min-width: 768px) {
+    width: 20%;
+  }
+}
+
+.w-md-25 {
+  @media (min-width: 768px) {
+    width: 25%;
   }
 }
 
@@ -139,13 +174,13 @@
 }
 
 .w-md-40 {
-  @media (min-width:768px) {
+  @media (min-width: 768px) {
     width: 40%;
   }
 }
 
 .w-md-49 {
-  @media (min-width:768px) {
+  @media (min-width: 768px) {
     width: 49%;
   }
 }
@@ -157,13 +192,35 @@
 }
 
 .w-md-80 {
-  @media (min-width:768px) {
+  @media (min-width: 768px) {
     width: 80%;
+  }
+}
+
+.w-md-100 {
+  @media (min-width: 768px) {
+    width: 100%;
   }
 }
 
 .h-500 {
   max-height: 500px;
+}
+
+.h-600 {
+  max-height: 600px;
+}
+
+.h-100 {
+  max-height: 100px;
+}
+
+.h-auto {
+  height: auto;
+}
+
+.w-100px {
+  width: 100px;
 }
 
 .obj-c {
@@ -178,6 +235,10 @@
   border-radius: 4px solid #00000060;
 }
 
+.bd-bottom {
+  border-bottom: 1px solid $lightest;
+}
+
 .border-none {
   border: none;
 }
@@ -186,25 +247,50 @@
   cursor: pointer;
 }
 
+.text-justify {
+  text-align: justify;
+}
 
 // 按鈕
 .fillBtn {
     display: inline-block;
     background-color: $primary;
-    color: #fff;
     font-size: 16px;
     letter-spacing: 2px;
     line-height: 24px;
     border-radius: 50px;
+    letter-spacing: 2px;
     cursor: pointer;
     transition: all .3s;
 
     &:hover {
         background-color: $secondary;
-        color: $primary;
+    }
+
+    a {
+      color: #ffffff;
     }
 
     @media (max-width: 768px) {
         width: 100%;
     }
+}
+.storyLink {
+  border: 1px solid $secondary;
+  display: inline-block;
+  padding: 8px 32px;
+  background-color: none;
+  font-size: 16px;
+  letter-spacing: 2px;
+  line-height: 24px;
+  border-radius: 50px;
+  letter-spacing: 2px;
+  color: $secondary;
+  cursor: pointer;
+  transition: all .3s;
+
+  &:hover {
+      background-color: $secondary;
+      color: #ffffff;
+  }
 }

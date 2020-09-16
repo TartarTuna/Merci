@@ -1,11 +1,12 @@
 <template>
   <div id="productModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
       aria-hidden="true">
+      <loading :active.sync="isLoading"></loading>
       <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content border-0">
           <div class="modal-header bg-dark text-white">
             <h5 id="exampleModalLabel" class="modal-title">
-              <span>{{isNew?"新增產品":"編輯產品"}}</span>
+              <span>{{ isNew?"新增產品":"編輯產品" }}</span>
             </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
@@ -96,6 +97,7 @@
 </template>
 
 <script>
+import Toast from '@/utils/toast'
 /* global $ */
 
 export default {
@@ -106,7 +108,8 @@ export default {
       },
       status: {
         fileUpLoading: false
-      }
+      },
+      isLoading: false
     }
   },
   props: {
@@ -147,6 +150,7 @@ export default {
       $('#productModal').modal('hide')
     },
     uploadFile () {
+      this.isLoading = true
       const uploadedFile = this.$refs.file.files[0]
       const formData = new FormData()
       formData.append('file', uploadedFile)
@@ -161,8 +165,13 @@ export default {
         if (res.status === 200) {
           this.tempProduct.imageUrl.push(res.data.data.path)
         }
+        this.isLoading = false
       }).catch(() => {
-        console.log('上傳不可超過 2 MB')
+        this.isLoading = false
+        Toast.fire({
+          title: '上傳不可超過 2 MB',
+          icon: 'warning'
+        })
         this.status.fileUploading = false
       })
     }

@@ -4,13 +4,12 @@
     <div class="container row justify-content-center">
       <div class="col-md-7 col-11 mt-md-5" v-if=" carts.length > 0">
         <h5 class="modal-title fz-3 fz-md-6 lh-4 fw-bold textColor">購物清單</h5>
-        <div class="">
           <ul v-for="item in carts" :key="item.product.id + 1" class="buylist mb-3">
             <li class="d-flex mb-1">
               <img class="buylistImg w-40" :src="item.product.imageUrl[0]" alt="buylistImg">
                 <div class="buylistContent bg-light w-100 p-1 p-md-2">
                   <div class="d-flex justify-content-between align-items-center">
-                    <p class="fz-2 lh-2 mb-15 fw-bold textColor">{{ item.product.title }}</p>
+                    <p class="fz-2 lh-2 mb-3 fw-bold textColor">{{ item.product.title }}</p>
                     <a @click.prevent="delCartItem(item.product.id)" class=" textColor"><i class="fas fa-times"></i></a>
                   </div>
                   <div class="goodPriceArea">
@@ -53,11 +52,11 @@
                   <span> 繼續購物</span>
               </router-link>
           </div>
-        </div>
+
       </div>
 
       <div v-else class="col-12 d-flex justify-content-center align-items-center flex-column">
-        <h3 class="my-5 lh-1">您的購物車是空的，<br>趕快放入喜歡的商品吧！</h3>
+        <h3 class="my-5 lh-1 fz-3 fw-400">您的購物車是空的，<br>趕快放入喜歡的商品吧！</h3>
         <div class="fillBtn text-center mb-3 w-30">
           <router-link to="/products" class="d-block px-5 py-2">繼續購物</router-link>
         </div>
@@ -67,7 +66,7 @@
 </template>
 
 <script>
-import Toast from '../../utils/toast'
+import Toast from '@/utils/toast'
 
 export default {
   data () {

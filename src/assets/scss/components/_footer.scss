@@ -1,7 +1,23 @@
 .footer {
+  background-color: #fff;
+  
+  .container {
+    @media (min-width: 768px) {
+      padding: 8px 8px;
+    }
+  }
+
   .footerLogo, .footerLink {
     &:hover {
       color: $secondary;
+    }
+  }
+
+  .footerLink {
+    display: none;
+
+    @media (min-width: 768px) {
+      display: block;
     }
   }
 }

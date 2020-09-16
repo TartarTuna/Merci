@@ -1,13 +1,13 @@
 <template>
-  <div class="header d-flex justify-content-center align-items-center flex-md-wrap">
+  <div class="header d-flex justify-content-between align-items-center flex-md-wrap">
 
-    <div class="logo mb-md-1">
+    <div class="logo">
       <router-link to="/">
-        <img class="logoImg" src="../../assets/merci logo.png" alt="logo">
+        <img class="logoImg" src="@/assets/merci logo verRuta.svg" alt="logo">
       </router-link>
     </div>
 
-      <a class="hamBtn">
+      <a class="hamBtn" @click.prevent="openHam()">
         <i class="fas fa-bars"></i>
       </a>
 
@@ -22,16 +22,25 @@
           <i class="fas fa-shopping-cart"></i>
         </router-link>
       </div>
-    </div>
+  </div>
 </template>
 
 <script>
 /* global $ */
 
-$(document).ready(() => {
-  $('.hamBtn').click(function (e) {
-    e.preventDefault()
-    $('.nav').toggleClass('active')
-  })
-})
+export default {
+  data () {
+
+  },
+  methods: {
+    openHam () {
+      $(document).ready(() => {
+        $('.hamBtn').click(function (e) {
+          e.preventDefault()
+          $('.nav').toggleClass('active')
+        })
+      })
+    }
+  }
+}
 </script>

@@ -10,10 +10,10 @@
         </div>
         <div class="modal-body">
           <ul>
-            <li>Email: {{order.user.email}}</li>
-            <li>收件人姓名: {{order.user.name}}</li>
-            <li>收件人電話: {{order.user.tel}}</li>
-            <li>收件人地址: {{order.user.address}}</li>
+            <li>Email: {{ order.user.email }}</li>
+            <li>收件人姓名: {{ order.user.name }}</li>
+            <li>收件人電話: {{ order.user.tel }}</li>
+            <li>收件人地址: {{ order.user.address }}</li>
           </ul>
         </div>
       </div>
@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import Toast from '../utils/toast'
+import Toast from '@/utils/toast'
 /* global $ */
 
 export default {

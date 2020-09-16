@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import Toast from '../../utils/toast'
+import Toast from '@/utils/toast'
 
 export default {
   data () {

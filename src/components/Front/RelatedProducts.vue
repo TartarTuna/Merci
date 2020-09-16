@@ -1,8 +1,8 @@
 <template>
   <div class="my-5">
-      <div class="d-flex flex-column flex-md-row justify-content-center relatedCards">
-        <div v-for="item in relatedFilter.slice(0, 4)" :key="item.id" class="mr-md-3 mb-4 mb-md-0">
-          <div class="mb-md-2 mb-3">
+      <div class="relatedCards row">
+        <div v-for="item in relatedFilter.slice(0, 4)" :key="item.id" class="mb-4 mb-md-0 col-md-3 col-sm-6 col-12">
+          <div class="mb-md-2 mb-3 relatedImgWrap">
             <a @click.prevent="getSingleProduct(item.id)" class="relatedImgLink">
               <img class="relatedImg" :src="item.imageUrl[0]" alt="productImg">
             </a>
@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import Toast from '../../utils/toast'
+import Toast from '@/utils/toast'
 
 export default {
   data () {

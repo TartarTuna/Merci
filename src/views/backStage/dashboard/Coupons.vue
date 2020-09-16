@@ -52,9 +52,9 @@
 </template>
 
 <script>
-import Pagination from '../../../components/Pagination'
-import CouponModal from '../../../components/CouponModal'
-import DelCouponModal from '../../../components/DelCouponModal'
+import Pagination from '@/components/Pagination'
+import CouponModal from '@/components/backed/CouponModal'
+import DelCouponModal from '@/components/backed/DelCouponModal'
 /* global $ */
 
 export default {
@@ -104,7 +104,7 @@ export default {
           this.$refs.couponModal.getCoupon(item.id) // 用取得單一優惠券資訊的函式取得此優惠券資料
           break
         case 'del':
-          this.tempCoupon = Object.assign({}, item) // 用淺拷貝拷貝item
+          this.tempCoupon = { ...item } // 用淺拷貝拷貝item
           $('#delCouponModal').modal('show')
           break
         default:

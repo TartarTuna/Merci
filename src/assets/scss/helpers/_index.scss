@@ -1,46 +1,73 @@
 .indexAbout {
-  .aboutTxt {
-    .moreBtn {
-      color: $smallLink;
+  @media (max-width: 768px) {
+      padding-bottom: 308px;
     }
-  }
-  .aboutPhoto {
-    z-index: -1;
-    
-    .aboutImg {
-      height: 357px;
 
-      @media (min-width: 768px) {
+  .storyArea {
+    @media (max-width: 768px) {
+      position: relative;
+    }
+
+    .aboutTxt {
+      @media (max-width: 768px) {
+        border-radius: 10px;
+      }
+    }
+
+    .aboutPhoto {
+      @media (max-width: 768px) {
+          position: absolute;
+          top: 350px;
+        }
+
+      @media (max-width: 426px) {
+        top: 380px
+      }
+
+      @media (max-width: 320px) {
+        top: 420px;
+      }
+      
+      .aboutImg {
         height: 650px;
+  
+        @media (max-width: 768px) {
+          height: 357px;
+        }
       }
+    }
+
+    .aboutTxt {
+      max-width: 500px;
+      padding: 80px 50px;
+      text-align: justify;
+      background-color: $lightest;
+  
+        @media (max-width: 768px) {
+          max-width: 400px;
+          padding: 50px 30px 70px 30px;
+        }
     }
   }
+}
 
-  .aboutTxt {
-    position: relative;
-    width: 350px;
-    z-index: -1;
+.featureBackground {
+  background-image: url(https://hexschool-api.s3.us-west-2.amazonaws.com/custom/4AxMmtmje0qtvY7pnMrVavZcIHRVGGQfJZxlZEzZUlVdXSVBKyiKAmkZngckPbuxEAqx0sHPRjbWEbvIdSYvlD3n0l5ic2ahLMnoo6DvQ9OEbzJUxlSYTDzM6ym7XKxF.jpg);
 
-      @media (min-width: 768px) {
-        width: 450px;
-      }
 
-    &::before {
-      position: absolute;
-      content: '';
-      width: 400px;
-      height: 370px;
-      background-color: $lightest;
-      z-index: -100;
-      top: -20px;
-      left: -25px;
+  .featureTitle {
+    padding-top: 24px;
+  }
 
-      @media (min-width: 768px) {
-        width: 600px;
-        height: 480px;
-        left: -75px;
-        top: -84px;
-      }
-    }
+  .featureSubTitle {
+    padding-bottom: 94px;
+  }
+}
+
+.faetureIconsWrap {
+  margin-top: -70px;
+  
+  .featureIcon {
+    max-height: 140px;
   }
 }

@@ -1,18 +1,16 @@
 .header {
   display: flex;
   justify-content: space-between;
-  padding: 20px 88px;
+  padding: 8px 50px;
   
   .hamBtn {
     display: none;
-    color: #518670;
+    color: $primary;
   }
   
   .logo {
-    width: 100%;
     .logoImg {
-      margin: 0 auto;
-      height: 80px;
+      height: 40px;
     }
   }
   
@@ -27,13 +25,12 @@
   }
   
   .menu {
-    font-size: 20px;
     line-height: 30px;
-    color: #518670;
+    color: $primary;
     text-decoration: none;
     
     &:hover {
-      color: #FFCB75;
+      color: $secondary;
     }
 
   }
@@ -42,11 +39,11 @@
     margin-left: 64px;
     
     .cartIcon {
-      font-size: 32px;
-      color: #518670;
+      font-size: 24px;
+      color: $primary;
           
       &:hover {
-        color: #FFCB75;
+        color: $secondary;
       }
     }
   
@@ -63,11 +60,10 @@
     align-items: center;
     
     .logo {
-      height: 50px;
       width: auto;
   
       .logoImg {
-        height: 50px;
+        height: 30px;
       }
     }
     

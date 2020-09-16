@@ -1,10 +1,21 @@
-.banner {
-  background-image: url('https://raw.githubusercontent.com/TartarTuna/EC_images/master/mainBanner.jpg');
-  height: 720px;
+.allBanner {
+  height: 560px;
   background-position: center center;
   background-size: cover;
   display: flex;
   align-items: center;
+}
+
+.bannerProducts {
+  background-image: url('https://hexschool-api.s3.us-west-2.amazonaws.com/custom/ToQoI9HMk0fGMme0U2b9xUWkcgxX13BHBplSu5CqK9uIc23nXC7rHTCn07fWrSDlHqh8ISePcVgnT0THvKlBMlmsjyAe43xqA9WCIZzER1uW1kLockTy6GAltvyBFG3q.jpg');
+}
+
+.bannerFeature {
+  background-image: url('https://hexschool-api.s3.us-west-2.amazonaws.com/custom/WrSPpNN14K4Pg0i3kSsonDnof9v9G1HcMO3Yc1fL8TVAfXIu4Kr4ZYgC47Nz0SsNHZ5uDjvFy34H4YOpehYKBefK70zulrOq75cSOu5Q77ICZ67IzlGKiZ124gXmmAgt.jpg');
+}
+
+.bannerGift {
+  background-image: url('https://hexschool-api.s3.us-west-2.amazonaws.com/custom/9khOooV8ThWQjKmZ1i9Qda2MPAX7xWexMFlsx2QW31SZW9PNAedE13QjAMtbGKrcDILJlF7O4NO4hGiEpFzF6XfecNbwPuhEGzO6w43xlLrgyfmwXpoWJITjA7uHJzGu.jpg');
 }
 
 .container {
@@ -14,10 +25,33 @@
 
 .slogan {
   font-size: 64px;
-  font-weight: bold;
+  font-weight: 400;
   line-height: 100px;
-  color: #518670;
+  letter-spacing: 2px;
+  color: $primary;
   text-align: left;
+}
+
+.bannerLink {
+    display: inline-block;
+    padding: 8px 32px;
+    background-color: $secondary;
+    font-size: 16px;
+    letter-spacing: 2px;
+    line-height: 24px;
+    border-radius: 50px;
+    letter-spacing: 2px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all .3s;
+
+    &:hover {
+        background-color: $moreDark;
+    }
+}
+
+.swiper-pagination-bullet-active {
+  background: $primary;
 }
 
 @media (max-width:768px) {

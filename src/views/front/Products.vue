@@ -4,10 +4,10 @@
     <!-- banner -->
     <section class="productsBanner mb-md-9 mb-5"></section>
 
-    <div class="container" v-if=" products.length > 0">
+    <div class="container mb-5" v-if=" products.length > 0">
       <!-- 分類按鈕 -->
       <section class="categoryBtns">
-        <ul class="categories d-flex flex-column flex-md-row justify-content-center align-items-center text-center">
+        <ul class="categories d-flex flex-column flex-md-row justify-content-center align-items-center text-center mb-1">
           <li class="categoryItem mb-2" >
             <a href="#" @click.prevent="filterCategory = ''" :class="{ active: filterCategory === '' }">所有商品</a>
           </li>
@@ -17,12 +17,23 @@
         </ul>
       </section>
 
+      <!-- 分類標題 -->
+      <div class="categoryTitleArea fz-3 fz-md-4 fw-bold text-primary text-center mb-3 letter-space-3 py-3">
+        <h2 class="mb-0" v-if="filterCategory">
+          {{ filterCategory }}
+        </h2>
+
+        <h2 class="mb-0" v-else>所有商品</h2>
+      </div>
+
       <!-- 產品列表 -->
       <div class="productList">
         <ul class="productCards flex-md-row flex-column">
           <li class="productCard" v-for="item in filterCategories" :key="item.id">
             <router-link :to="`/product/${item.id}`" class="productInfo">
-              <div class="productImg" :style="{backgroundImage: `url(${item.imageUrl[0]})`}"></div>
+              <div class="productImgWrap">
+                <div class="productImg" :style="{backgroundImage: `url(${item.imageUrl[0]})`}"></div>
+              </div>
             </router-link>
             <p class="productTitle mt-2 mb-1">{{ item.title }}</p>
             <div class="productPrice">
@@ -35,18 +46,12 @@
           </li>
         </ul>
       </div>
-
-    <!-- 分頁 -->
-      <div class="d-flex justify-content-center">
-        <Pagination :pages="pagination" @emit-pages="getProducts"></Pagination>
-      </div>
     </div>
   </div>
 </template>
 
 <script>
-import Toast from '../../utils/toast'
-import Pagination from '../../components/Pagination'
+import Toast from '@/utils/toast'
 
 export default {
   data () {
@@ -58,12 +63,8 @@ export default {
       categories: ['果醬', '餅乾', '糕點', '優惠套組'],
       filterCategory: '',
       isLoading: false,
-      isProcessing: false,
-      pagination: {}
+      isProcessing: false
     }
-  },
-  components: {
-    Pagination
   },
   created () {
     this.getProducts()
@@ -75,7 +76,6 @@ export default {
       this.$http.get(api)
         .then(res => {
           this.products = res.data.data
-          this.pagination = res.data.meta.pagination
           const { categoryName } = this.$route.params
           if (categoryName) {
             this.filterCategory = categoryName
@@ -93,6 +93,7 @@ export default {
     addToCart (id, quantity = 1) {
       this.status.loadingItem = id
       this.isProcessing = true
+      this.isLoading = true
       const api = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/ec/shopping`
       const cart = {
         product: id,
@@ -107,6 +108,7 @@ export default {
           })
           this.status.loadingItem = ''
           this.isProcessing = false
+          this.isLoading = false
         })
         .catch((err) => {
           const errMsg = err.response.data.errors
@@ -117,6 +119,7 @@ export default {
             })
             this.status.loadingItem = ''
             this.isProcessing = false
+            this.isLoading = false
           }
         })
     }

@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import FrontNavBar from '../../components/Front/FrontNavBar.vue'
-import Footer from '../../components/Front/Footer'
+import FrontNavBar from '@/components/Front/FrontNavBar.vue'
+import Footer from '@/components/Front/Footer'
 
 export default {
   data () {

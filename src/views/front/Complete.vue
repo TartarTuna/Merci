@@ -1,21 +1,32 @@
 <template>
 <div class="complete">
-  <div class="container-fluid position-relative">
-    <div class="row">
-      <div class="donePageImg col-md-6 bg-cover position-absolute"></div>
-
-      <div class="container">
-        <div class="row justify-content-start text-md-primary text-white">
-          <div class="col-md-5">
-            <h1 class="doneH1 fz-6 lh-8 fw-bold text-center text-md-left mb-3 text-md-primary">結帳完成 ヽ(ﾟ▽ﾟ)ノ</h1>
-            <p class="doneP fz-2 lh-3 text-center text-md-left transparentWhite text-md-primary">我們已收到您的訂單，感謝您的支持；手工果醬及點心皆為下單後新鮮現做，請放心享用。</p>
-            <div class="fillBtn fw-bold text-center w-100 w-md-auto">
-                <router-link to="/products" class="d-block px-5 py-2">繼續逛逛</router-link>
-            </div>
-          </div>
+  <div class="donePageImg bg-cover"></div>
+  <div class="container">
+    <div class="d-flex flex-column align-items-center text-primary py-5 pt-md-9 pb-md-6 bd-bottom">
+        <h1 class="fz-md-6 fz-4 lh-8 fw-bold mb-3 text-primary text-center">結帳完成 ヽ(ﾟ▽ﾟ)ノ</h1>
+        <div class="downContent">
+          <p class="fz-2 lh-3 text-text mb-2 fw-300 text-left">我們已收到您的訂單，感謝您的支持，手工果醬及點心皆為下單後新鮮現做，請放心享用。</p>
+          <p class="fz-2 lh-3 text-text mb-0 fw-300 text-left">您可以繼續逛逛我們的精選分類，讓玫希陪伴您度過每個美好的美味時刻，從此幸福的感覺源源不絕。</p>
         </div>
-      </div>
     </div>
+  </div>
+
+  <!--category -->
+  <div class="container">
+    <ProductFilter />
   </div>
 </div>
 </template>
+
+<script>
+import ProductFilter from '@/components/Front/ProductFilter'
+
+export default {
+  data () {
+    return {}
+  },
+  components: {
+    ProductFilter
+  }
+}
+</script>

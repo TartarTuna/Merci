@@ -1,5 +1,5 @@
 .parallax {
-  background: url("https://raw.githubusercontent.com/TartarTuna/EC_images/master/%E6%BB%BE%E5%8B%95%E8%A6%96%E5%B7%AE.jpg")center center no-repeat;
+  background: url("https://hexschool-api.s3.us-west-2.amazonaws.com/custom/heXHLY8GT5EsqlfpAvXKDWmEgrf8ibNtY4hfYQcIrwxK4Hp4oKLK4GEdXdimONkbVKY9vtMO1cO1bosj9XUeM6Zb7r4OdeGRw4oDMzGXObKymOHtSUkhAl0MyfjotQRT.jpg")center center no-repeat;
   min-height: 400px;
   background-attachment: fixed;
   background-size: cover;
@@ -9,15 +9,14 @@
 
     .subscribeBtn {
       width: 25%;
+      border: none;
 
       &:hover {
-        color: $primary;
         background-color: $secondary;
-        border: $secondary;
       }
 
       @media (max-width:768px) {
-        width: 40%;
+        width: 35%;
       }
     }
   }

@@ -33,9 +33,9 @@
 </template>
 
 <script>
-import Toast from '../../../utils/toast'
-import Pagination from '../../../components/Pagination'
-import DelStorageFile from '../../../components/DelStorageFile'
+import Toast from '@/utils/toast'
+import Pagination from '@/components/Pagination'
+import DelStorageFile from '@/components/backed/DelStorageFile'
 /* global $ */
 
 export default {

@@ -66,8 +66,8 @@ $colors: map-merge(
   $colors
 );
 
-$primary:       #518670 !default;
-$secondary:     #FFCB75 !default;
+$primary:       #307659 !default;
+$secondary:     #C24029;//#691b5a !default;
 $success:       $green !default;
 $info:          $cyan !default;
 $warning:       $yellow !default;
@@ -77,6 +77,8 @@ $dark:          #45625A !default;
 $text:          #121212 !default;
 $lightest:      #D1E6DF !default;
 $smallLink:     #61A5A8;
+$moreDark:      #8F2F1E;
+$lightOp:       #d1e6dfd1;
 
 $theme-colors: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
@@ -159,7 +161,10 @@ $spacers: map-merge(
     10: 80px,
     11: 88px,
     12: 96px,
-    13: 84px
+    13: 84px,
+    15: 120px,
+    16: 134px,
+    17: 144px
   ),
   $spacers
 );
@@ -255,7 +260,7 @@ $line-height-sm:              1.5 !default;
 $border-width:                1px !default;
 $border-color:                $gray-300 !default;
 
-$border-radius:               .25rem !default;
+$border-radius:               10px;//.25rem !default;
 $border-radius-lg:            .3rem !default;
 $border-radius-sm:            .2rem !default;
 

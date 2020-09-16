@@ -52,9 +52,9 @@
 </template>
 
 <script>
-import Toast from '../../../utils/toast'
-import Pagination from '../../../components/Pagination'
-import OrderModal from '../../../components/OrderModal'
+import Toast from '@/utils/toast'
+import Pagination from '@/components/Pagination'
+import OrderModal from '@/components/backed/OrderModal'
 
 export default {
   data () {

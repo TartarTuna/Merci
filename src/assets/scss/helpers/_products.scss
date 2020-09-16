@@ -1,14 +1,12 @@
 .products {
   .productsBanner {
-    background-image: url('https://raw.githubusercontent.com/TartarTuna/EC_images/master/subscribe.jpg');
+    background-image: url('https://hexschool-api.s3.us-west-2.amazonaws.com/custom/Hzih9o4178zjCDw0gMbkF0hO4eGgP0Wy1oTkyVHn65E5ouAxjDxxo8MNKpWZukSAgq3vyUmNlITefHNRqUgb2unLu1uGPbQ2exr9DW0KQteYiNwtTvph623Ql4jEkqeB.jpg');
     height: 500px;
     background-position: center center;
     background-size: cover;
   }
 
   .categories {
-    margin-bottom: 80px;
-
     .categoryItem {
       background-color: $primary;
       border-radius: 50px;
@@ -16,7 +14,7 @@
 
       &:hover {
         background-color: $secondary;
-        color: $primary;
+        color: #ffffff;
       }
 
       @media (max-width:768px) {
@@ -34,12 +32,13 @@
         @media (max-width:768px) {
         padding: 10px 30px;
         }
-
-        &:hover {
-        color: $primary;
-        }
       }
     }
+  }
+
+  .categoryTitleArea {
+    border-top: 1px solid $primary;
+    border-bottom: 1px solid $primary;
   }
 
   .productList {
@@ -62,17 +61,38 @@
 
         .productInfo {
           cursor: pointer;
+          
+          .productImgWrap {
+            margin: 0 auto;
+            max-width: 300px;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 10px;
+
+            .productImg {
+              margin-bottom: 16px;
+              background-size: cover;
+              background-position: center;
+              background-repeat: no-repeat;
+              height: 250px;
+              border-radius: 10px;
+              -webkit-transition: all .5s;
+              -moz-transition: all .5s;
+              -o-transition: all .5s;
+              transition: all .5s;
+    
+              &:hover {
+                -ms-transform: scale(1.2);
+                -moz-transform: scale(1.2);
+                -webkit-transform: scale(1.2);
+                -o-transform: scale(1.2);
+                transform: scale(1.2);
+              }
+            }
+          }
+
         }
 
-        .productImg {
-          margin-bottom: 16px;
-          background-size: cover;
-          background-position: center;
-          height: 250px;
-          border-radius: 10px;
-          max-width: 300px;
-          margin: 0 auto;
-        }
 
         .productTitle {
           color: #212121;
@@ -107,7 +127,6 @@
           &:hover {
             background-color: $secondary;
             border-radius: 50px;
-            color: $primary;
           }
         }
       }
