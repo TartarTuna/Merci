@@ -23,7 +23,6 @@ export default {
   methods: {
     signout () {
       document.cookie = 'hexToken=; expires=; path=/'
-      console.log('token 已清除')
       this.$router.push('/')
     }
   }

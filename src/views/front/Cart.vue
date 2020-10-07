@@ -1,31 +1,32 @@
 <template>
   <div class="cartModal">
     <loading :active.sync="isLoading"></loading>
-    <div class="container row justify-content-center">
-      <div class="col-md-7 col-11 mt-md-5" v-if=" carts.length > 0">
+    <div class="container d-flex justify-content-center">
+      <div class="col-md-7 col-12 mt-5" v-if=" carts.length > 0">
         <h5 class="modal-title fz-3 fz-md-6 lh-4 fw-bold textColor">購物清單</h5>
           <ul v-for="item in carts" :key="item.product.id + 1" class="buylist mb-3">
-            <li class="d-flex mb-1">
-              <img class="buylistImg w-40" :src="item.product.imageUrl[0]" alt="buylistImg">
-                <div class="buylistContent bg-light w-100 p-1 p-md-2">
+            <li class="d-flex flex-column mb-1">
+              <div class="cartMain d-flex p-2 bg-light align-items-center rounded-top">
+                <img class="buylistImg w-40 rounded" :src="item.product.imageUrl[0]" alt="buylistImg">
+                <div class="buylistContent bg-light w-100 p-md-2 py-2 pl-2">
                   <div class="d-flex justify-content-between align-items-center">
-                    <p class="fz-2 lh-2 mb-3 fw-bold textColor">{{ item.product.title }}</p>
+                    <div class="cartTxt">
+                      <p class="fz-2 fz-md-3-1 mb-0 pl-md-2 fw-bold textColor">{{ item.product.title }}</p>
+                      <p class="fz-1-1 fz-md-2 mb-0 pl-md-2 text-dark">{{ item.product.origin_price | money }} / {{ item.product.unit }}</p>
+                    </div>
                     <a @click.prevent="delCartItem(item.product.id)" class=" textColor"><i class="fas fa-times"></i></a>
                   </div>
-                  <div class="goodPriceArea">
-                    <span class="goodsAcount mr-1 fz-md-2 alertTxt">{{ item.product.price | money }}</span>
-                    <del class="goodsPrice smallLink">{{ item.product.origin_price | money }}</del>
-                  </div>
-                  <div class="quantityArea d-flex justify-content-between align-items-center">
-                    <div class="bg-gray-light rounded w-30 d-flex justify-content-between align-items-center text-left">
-                      <a @click.prevent="updateQuantity(item.product.id, item.quantity - 1)" :disabled="item.quantity <= 1" class="cursor-p"><i class="fas fa-minus"></i></a>
-                      <input type="number" :disabled="item.quantity <= 1" class="form-control border-0 text-center my-auto shadow-none bg-light"
-                      @change="updateQuantity(item.product.id, $event.target.value)" :value="item.quantity">
-                      <a @click.prevent="updateQuantity(item.product.id, item.quantity + 1)" class="cursor-p"><i class="fas fa-plus"></i></a>
-                    </div>
-                    <div class="w-50 text-right fw-bold textColor">{{ (item.product.price * item.quantity) | money }}</div>
-                  </div>
                 </div>
+              </div>
+              <div class="quantityArea d-flex justify-content-between align-items-center bg-light p-md-2 px-2 pb-2 rounded-bottom">
+                <div class="bg-gray-light rounded w-50 d-flex justify-content-between align-items-center text-left border border-smallLink rounded-pill">
+                  <a @click.prevent="updateQuantity(item.product.id, item.quantity - 1)" :disabled="item.quantity <= 1" class="cursor-p p-1"><i class="fas fa-minus"></i></a>
+                  <input type="number" :disabled="item.quantity <= 1" class="form-control border-0 text-center my-auto shadow-none bg-light"
+                  @change="updateQuantity(item.product.id, $event.target.value)" :value="item.quantity">
+                  <a @click.prevent="updateQuantity(item.product.id, item.quantity + 1)" class="cursor-p p-1"><i class="fas fa-plus"></i></a>
+                </div>
+                <p class="w-50 fz-2 fz-md-3-1 mb-0 text-right fw-bold textColor">金額 {{ (item.product.price * item.quantity) | money }}</p>
+              </div>
             </li>
           </ul>
 
@@ -55,10 +56,13 @@
 
       </div>
 
-      <div v-else class="col-12 d-flex justify-content-center align-items-center flex-column">
-        <h3 class="my-5 lh-1 fz-3 fw-400">您的購物車是空的，<br>趕快放入喜歡的商品吧！</h3>
-        <div class="fillBtn text-center mb-3 w-30">
-          <router-link to="/products" class="d-block px-5 py-2">繼續購物</router-link>
+      <div v-else class="col-12 my-5 my-md-1">
+        <div class="d-flex justify-content-center align-items-center flex-column v-100">
+          <img class="ideaImg" src="https://hexschool-api.s3.us-west-2.amazonaws.com/custom/fParBbJ6JQm3SeEg3PBISE9OL4CSnibrVJRSzdx2uAnIIyAdPs0eg0q8bL7KIZBDOa8ziHusck7sGNMQmFlWkYtGai4OrHU5gRte8CKOAxyyN3T6Yy8yop0JZn1dN44Q.svg" alt="ideaImg">
+          <h3 class="my-5 lh-1 fz-3 fw-400 text-center">您的購物車是空的，<br>趕快放入喜歡的商品吧！</h3>
+          <div class="fillBtn text-center mb-3 w-30">
+            <router-link to="/products" class="d-block px-5 py-2">繼續購物</router-link>
+          </div>
         </div>
       </div>
     </div>
@@ -87,6 +91,7 @@ export default {
         .then(res => {
           this.carts = res.data.data
           this.updateTotal()
+          this.$bus.$emit('get-cart')
           this.isLoading = false
         })
         .catch(() => {

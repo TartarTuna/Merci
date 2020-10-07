@@ -52,7 +52,7 @@
         transform: translate(-50%, -50%);
     }
     .photoText {
-        color:#ffffff;
+        color:#212529;
         display: inline-block;
         line-height: 40px;
         font-size: 24px;
@@ -65,12 +65,21 @@
 
     &:hover {
       .ovrlyT, .ovrlyB {
-          left: 0;
-          top: 0;
+        left: 0;
+        top: 0;
       }
 
       .photoText {
-          opacity: 1;
+        opacity: 1;
       }
     }
+}
+
+.filterItemContent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 24px;
+  margin-right: 24px;
+  border-right: 4px solid $primary;
 }

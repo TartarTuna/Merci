@@ -114,24 +114,29 @@ export default {
         })
     },
     openModal (mode, item) {
+      this.isLoading = true
       switch (mode) {
         case 'newProduct':
-          this.isNew = true // 變換modal標題
+          this.isNew = true // 變換 modal 標題
           // 清空內容
           this.$refs.productModal.tempProduct = {
             imageUrl: []
           }
           $('#productModal').modal('show')
+          this.isLoading = false
           break
         case 'editProduct':
-          this.isNew = false // 變換modal標題
+          this.isNew = false // 變換 modal 標題
           this.$refs.productModal.getSingleProduct(item.id) // 用取得單一產品資訊的函式取得資料
+          this.isLoading = false
           break
         case 'deleteProduct':
           this.tempProduct = { ...item } // 用淺拷貝拷貝item
           $('#delModal').modal('show')
+          this.isLoading = false
           break
         default:
+          this.isLoading = false
           break
       }
     }

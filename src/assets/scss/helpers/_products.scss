@@ -1,44 +1,58 @@
 .products {
   .productsBanner {
     background-image: url('https://hexschool-api.s3.us-west-2.amazonaws.com/custom/Hzih9o4178zjCDw0gMbkF0hO4eGgP0Wy1oTkyVHn65E5ouAxjDxxo8MNKpWZukSAgq3vyUmNlITefHNRqUgb2unLu1uGPbQ2exr9DW0KQteYiNwtTvph623Ql4jEkqeB.jpg');
-    height: 500px;
+    height: 450px;
     background-position: center center;
     background-size: cover;
+
+    @media (max-width: 768px) {
+      height: 200px;
+    }
   }
 
   .categories {
+    border-bottom: 1px solid $primary;
+
+    @media (max-width: 768px) {
+      .bd-b-sm {
+        border-bottom: 1px solid $primary;
+      }
+    }
+
     .categoryItem {
-      background-color: $primary;
-      border-radius: 50px;
-      margin-right: 30px;
+      width: 15%;
 
       &:hover {
-        background-color: $secondary;
+        background-color: $primary;
         color: #ffffff;
       }
 
       @media (max-width:768px) {
-        margin-right: 0px;
-        width: 50%;
+        width: 100%;
       }
 
       a {
-        display: inline-block;
-        padding: 5px 30px;
-        color: #ffffff;
-        font-size: 16px;
-        line-height: 20px;
+        color: $primary;
+      }
 
-        @media (max-width:768px) {
-        padding: 10px 30px;
+      .categoryIcon {
+        display: block;
+        width: auto;
+        padding: 16px 0;
+        font-size: 24px;
+        line-height: 24px;
+
+        &:hover {
+          color: #ffffff;
         }
+
       }
     }
-  }
 
-  .categoryTitleArea {
-    border-top: 1px solid $primary;
-    border-bottom: 1px solid $primary;
+    .activeEffect {
+      background-color: $primary;
+      color: #ffffff;
+    }
   }
 
   .productList {

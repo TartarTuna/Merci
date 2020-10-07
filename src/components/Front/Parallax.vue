@@ -1,8 +1,8 @@
 <template>
-  <div class="parallax position-relative mb-3 mb-md-0">
-    <div class="row justify-content-center">
-      <div class="col-8 col-md-5 position-absolute callActive">
-          <p class="fz-md-4 fz-3 lh-6 text mb-md-3 fw-bold">訂閱我們<br>獲得最新消息及優惠</p>
+  <div class="parallax">
+    <div class="parallaxContent d-flex justify-content-center align-items-center">
+      <div class="col-8 col-md-5 callActive">
+          <p class="fz-sm-4 fz-3-1 lh-6 text mb-md-3 fw-bold">訂閱我們<br>獲得最新消息及優惠</p>
 
           <form class="form-inline flex-nowrap w-100">
               <label class=" sr-only" for="subscribeEmail">Name</label>

@@ -1,73 +1,59 @@
-.indexAbout {
+.indexAboutImg {
+  background-image: url(https://images.unsplash.com/photo-1514163061636-02db31852e84?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80);
+  min-height: 600px;
+
   @media (max-width: 768px) {
-      padding-bottom: 308px;
-    }
+    height: 300px;
+  }
+}
 
-  .storyArea {
+.aboutTxt {
+  background-color: $lightest;
+    
+  @media (max-width: 768px) {
+    margin-top: 624px;
+    background-color: #fff;
+  }
+}
+
+.featureImg {
+  height: 500px;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    height: 300px;
+  }
+}
+
+.featureContents {
+  width: 40%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.findUsContent {
+  width: 40%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.findUsMap {
+  width: 60%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+
+  iframe {
+    height: 450px;
+    border-radius: 10px;
+
     @media (max-width: 768px) {
-      position: relative;
+      height: 300px;
     }
-
-    .aboutTxt {
-      @media (max-width: 768px) {
-        border-radius: 10px;
-      }
-    }
-
-    .aboutPhoto {
-      @media (max-width: 768px) {
-          position: absolute;
-          top: 350px;
-        }
-
-      @media (max-width: 426px) {
-        top: 380px
-      }
-
-      @media (max-width: 320px) {
-        top: 420px;
-      }
-      
-      .aboutImg {
-        height: 650px;
-  
-        @media (max-width: 768px) {
-          height: 357px;
-        }
-      }
-    }
-
-    .aboutTxt {
-      max-width: 500px;
-      padding: 80px 50px;
-      text-align: justify;
-      background-color: $lightest;
-  
-        @media (max-width: 768px) {
-          max-width: 400px;
-          padding: 50px 30px 70px 30px;
-        }
-    }
-  }
-}
-
-.featureBackground {
-  background-image: url(https://hexschool-api.s3.us-west-2.amazonaws.com/custom/4AxMmtmje0qtvY7pnMrVavZcIHRVGGQfJZxlZEzZUlVdXSVBKyiKAmkZngckPbuxEAqx0sHPRjbWEbvIdSYvlD3n0l5ic2ahLMnoo6DvQ9OEbzJUxlSYTDzM6ym7XKxF.jpg);
-
-
-  .featureTitle {
-    padding-top: 24px;
-  }
-
-  .featureSubTitle {
-    padding-bottom: 94px;
-  }
-}
-
-.faetureIconsWrap {
-  margin-top: -70px;
-  
-  .featureIcon {
-    max-height: 140px;
   }
 }

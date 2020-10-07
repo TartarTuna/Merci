@@ -1,6 +1,6 @@
 <template>
-  <section class="footer fixed-bottom">
-    <div class="container row d-md-flex align-items-center justify-content-center justify-content-md-start">
+  <section class="footer">
+    <div class="container d-flex align-items-center justify-content-center justify-content-md-start">
       <router-link to="/" class="footerLogo primary fz-3">Merci</router-link>
       <p class="m-0 ml-2">© 2020. All Rights Reserved.</p>
 

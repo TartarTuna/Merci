@@ -3,43 +3,76 @@
       <loading :active.sync="isLoading"></loading>
         <div class="row">
             <div class="col-12">
-                <div class="d-flex flex-wrap w-100">
+                <div class="d-flex flex-wrap w-100 mt-5">
                     <!--productDetails -->
                     <div class="productDetailCollapse w-100 mb-3 col-12 col-md-5 order-md-2">
                         <div class="collapseHeader btn bg-light fz-2 lh-3 d-md-none d-block d-flex justify-content-between"
                             data-toggle="collapse" href="#multiCollapse" role="button" aria-expanded="false"
                             aria-controls="multiCollapseExample1">
                             <span>訂單金額</span>
-                            <div class="d-flex align-items-center">
+                            <div v-if="coupon.enabled" class="d-flex align-items-center">
+                                <span class="totalSpan mr-1">{{ ((totalPrice * (coupon.percent / 100)) + 80) | money }}</span>
+                                <i class="returnIcon fas fa-angle-down"></i>
+                            </div>
+                            <div v-else class="d-flex align-items-center">
                                 <span class="totalSpan mr-1">{{ (totalPrice + 80) | money }}</span>
                                 <i class="returnIcon fas fa-angle-down"></i>
                             </div>
                         </div>
 
                         <!--productDetailContent -->
-                        <div class="collapse multi-collapse p-2 bg-light d-md-block" id="multiCollapse">
+                        <div class="collapse multi-collapse p-2 bg-light d-md-block rounded" id="multiCollapse">
                             <div class="card card-body infoBox p-0 border-0 bg-light">
                                 <ul v-for="item in carts" :key="item.product.id + 1" class="pb-2 mb-2 border-bottom">
-                                    <li class="mb-1 d-flex justify-content-between">
+                                    <li class="d-flex flex-column">
+                                      <div class="cardMainContent d-flex justify-content-between">
                                         <img :src="item.product.imageUrl[0]" alt="cartImg">
                                         <div class="ml-2 d-flex justify-content-between align-items-center w-100">
-                                            <p class="fz-2 lh-4 fw-bold m-0 w-40">{{ item.product.title }}</p>
-                                            <span class="w-30 text-center">x {{ item.quantity }}</span>
-                                            <p class="fz-2 lh-4 m-0 w-30 text-right">{{ item.product.price | money }}</p>
+                                            <div class="cardTxt w-70 w-md-40">
+                                              <p class="fz-2 lh-4 m-0 ">{{ item.product.title }}</p>
+                                              <p class="fz-1-1 lh-4 m-0 d-block d-md-none text-dark">{{ item.product.price | money }}</p>
+                                            </div>
+                                            <span class="w-20 w-md-30 text-center">x {{ item.quantity }}</span>
+                                            <p class="fz-2 lh-4 m-0 w-30 text-right d-none d-md-block">{{ item.product.price | money }}</p>
                                         </div>
+                                      </div>
                                     </li>
                                 </ul>
+
+                                <p class="text-muted" v-if="totalPrice > 1000">
+                                  消費金額已達 1,000 元，恭喜您獲得秋季限定優惠碼<br>"
+                                  <span class="text-primary font-weight-bold"> AutumnSweet </span>"，輸入可享
+                                  <span class="text-primary font-weight-bold fw-bold"> 85 折</span>優惠！</p>
+                                <p v-else class="text-muted">
+                                  消費滿 1,000 即可獲得 85 折優惠碼，目前的消費金額還差
+                                  <span class="text-secondary font-weight-bold">{{ 1000 - totalPrice }}</span> 元</p>
+                                <div class="input-group mb-3" v-if="totalPrice > 1000">
+                                  <input v-model="coupon_code" type="text" class="form-control" placeholder="請輸入優惠碼">
+                                  <div class="input-group-append">
+                                    <button class="btn btn-outline-primary" type="button" @click="useCoupon">
+                                      立即使用</button>
+                                  </div>
+                                </div>
+
                                 <ul class="pb-2 mb-2 border-bottom">
-                                    <li class="d-flex justify-content-between">
+                                    <li class="d-flex justify-content-between mb-1">
                                         <span class="fz-2 lh-4">小計</span>
                                         <span class="fz-2 lh-4">{{ totalPrice | money }}</span>
+                                    </li>
+                                    <li v-if="coupon.enabled" class="d-flex justify-content-between mb-1">
+                                        <span class="fz-2 lh-4 text-secondary">折扣</span>
+                                        <span class="fz-2 lh-4 text-secondary">- {{ totalPrice - totalPrice * (coupon.percent / 100) | money }}</span>
                                     </li>
                                     <li class="d-flex justify-content-between">
                                         <span class="fz-2 lh-4">運費</span>
                                         <span class="fz-2 lh-4">NT$80</span>
                                     </li>
                                 </ul>
-                                <div class="d-flex justify-content-between">
+                                <div v-if="coupon.enabled " class="d-flex justify-content-between">
+                                    <span class="fz-3 lh-4 fw-bold">總計</span>
+                                    <span class="fz-3 lh-4 fw-bold">{{ ((totalPrice * (coupon.percent / 100)) + 80) | money }}</span>
+                                </div>
+                                <div v-else class="d-flex justify-content-between">
                                     <span class="fz-3 lh-4 fw-bold">總計</span>
                                     <span class="fz-3 lh-4 fw-bold">{{ (totalPrice + 80) | money }}</span>
                                 </div>
@@ -143,6 +176,8 @@ export default {
         payment: '請選擇付款方式'
       },
       totalPrice: 0,
+      coupon_code: '',
+      coupon: {},
       isLoading: false,
       isProcessing: false
     }
@@ -175,13 +210,37 @@ export default {
       })
       this.totalPrice = total
     },
+    useCoupon () {
+      const api = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/ec/coupon/search`
+      this.isLoading = true
+      this.$http.post(api, { code: this.coupon_code })
+        .then(res => {
+          this.getCart()
+          this.coupon = res.data.data
+          this.isLoading = false
+          Toast.fire({
+            text: '優惠碼使用成功',
+            icon: 'success'
+          })
+        })
+        .catch(() => {
+          this.isLoading = false
+          Toast.fire({
+            text: '優惠碼使用失敗',
+            icon: 'error'
+          })
+        })
+    },
     createOrder () {
       const api = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/ec/orders`
       this.isProcessing = true
+      this.isLoading = true
       const order = { ...this.form }
       this.$http.post(api, order)
         .then(res => {
           this.updateTotal()
+          this.$bus.$emit('get-cart')
+          this.isLoading = false
           Toast.fire({
             text: '訂單建立成功',
             icon: 'success'
@@ -191,6 +250,7 @@ export default {
           this.isProcessing = false
         })
         .catch(() => {
+          this.isLoading = false
           Toast.fire({
             text: '訂單建立失敗',
             icon: 'error'

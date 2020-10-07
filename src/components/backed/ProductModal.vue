@@ -64,15 +64,11 @@
 
                 <div class="form-group">
                   <label for="description">產品說明</label>
-                  <textarea id="description" v-model="tempProduct.description" type="text" class="form-control"
-                    placeholder="請輸入產品說明" required>
-              </textarea>
+                  <vue-editor id="description" v-model="tempProduct.description" />
                 </div>
                 <div class="form-group">
                   <label for="content">產品描述</label>
-                  <vue-editor id="content" v-model="tempProduct.content" type="text"
-                    placeholder="請輸入產品描述" required>
-              </vue-editor>
+                  <vue-editor id="content" v-model="tempProduct.content" />
                 </div>
                 <div class="form-group">
                   <div class="form-check">
@@ -121,12 +117,18 @@ export default {
   methods: {
     // 取得單一產品資料，id為item.id的那個id
     getSingleProduct (id) {
+      this.isLoading = true
       const api = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/admin/ec/product/${id}`
       this.$http.get(api).then(res => {
         this.tempProduct = res.data.data // 取到後寫進tempProduct
         $('#productModal').modal('show')
-      }).catch(error => {
-        console.log(error)
+        this.isLoading = false
+      }).catch(() => {
+        this.isLoading = false
+        Toast.fire({
+          title: '資料取得失敗',
+          icon: 'error'
+        })
       })
     },
     // 新增為「post」編輯則是「patch」，patch 必須傳入產品 ID
@@ -144,8 +146,15 @@ export default {
       this.$http[httpMethod](api, this.tempProduct)
         .then(() => {
           this.$emit('update')
-        }).catch(error => {
-          console.log(error)
+          Toast.fire({
+            title: '資料更新成功',
+            icon: 'success'
+          })
+        }).catch(() => {
+          Toast.fire({
+            title: '資料更新失敗',
+            icon: 'error'
+          })
         })
       $('#productModal').modal('hide')
     },
@@ -166,6 +175,10 @@ export default {
           this.tempProduct.imageUrl.push(res.data.data.path)
         }
         this.isLoading = false
+        Toast.fire({
+          title: '上傳成功',
+          icon: 'success'
+        })
       }).catch(() => {
         this.isLoading = false
         Toast.fire({

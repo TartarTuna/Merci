@@ -58,13 +58,12 @@ export default {
             icon: 'success'
           })
         })
-        .catch(err => {
+        .catch(() => {
           this.isLoading = false
           Toast.fire({
             title: '帳號或密碼錯誤',
             icon: 'error'
           })
-          console.log(err)
         })
     }
   }

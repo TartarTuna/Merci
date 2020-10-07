@@ -79,6 +79,9 @@ $lightest:      #D1E6DF !default;
 $smallLink:     #61A5A8;
 $moreDark:      #8F2F1E;
 $lightOp:       #d1e6dfd1;
+$primaryOp:     #157f53bd;
+$primarySm:     #2c6d52;
+$secondaryBtn:  #b43a25;
 
 $theme-colors: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
@@ -94,6 +97,10 @@ $theme-colors: map-merge(
     "dark":       $dark,
     "text":       $text,
     "lightest":   $lightest,
+    "lightOp":    $lightOp,
+    "primaryOp":  $primaryOp,
+    "primarySm":  $primarySm,
+    "secondaryBtn":  $secondaryBtn,
   ),
   $theme-colors
 );
@@ -164,7 +171,8 @@ $spacers: map-merge(
     13: 84px,
     15: 120px,
     16: 134px,
-    17: 144px
+    17: 144px,
+    26: 208px,
   ),
   $spacers
 );

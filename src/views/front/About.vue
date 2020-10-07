@@ -3,7 +3,7 @@
     <!-- story -->
     <section class="container position-relative mb-5 mb-md-17 py-md-5">
       <div class="row justify-content-start">
-        <div class="storyImg bg-cover rounded col-md-6 col-12 position-absolute"></div>
+        <div class="storyImg bg-cover col-md-6 col-12 position-absolute"></div>
       </div>
       <div class="row text-left justify-content-end mt-md-0">
         <div class="storyTxt col-md-7 col-12 rounded py-md-5 px-md-7 mt-md-11">
@@ -20,8 +20,8 @@
 
     <!-- 顧客心得 -->
     <section class="customerFeedback mb-5 mb-md-12 bg-cover d-flex justify-content-center flex-column">
-      <p class="featureTitle fz-3 fz-md-4 fw-bold text-white text-center mt-3 mb-0 letter-space-3">玫子粉這樣說</p>
-      <p class="featureSubTitle fz-2 fw-300 text-white text-center mb-0 letter-space-3">來自客人的真實回饋</p>
+      <p class="featureTitle fz-3 fz-md-4 fw-bold text text-center mt-3 mb-0 letter-space-3">玫子粉這樣說</p>
+      <p class="featureSubTitle fz-2 fw-300 text text-center mb-0 letter-space-3">來自客人的真實回饋</p>
 
       <swiper class="swiper text-center container" :options="swiperOption">
         <swiper-slide class="text-text fz-2 fw-300 d-flex align-items-center flex-column">
@@ -57,7 +57,7 @@
     <!-- features -->
     <section class="features container mb-5 mb-md-9">
       <div class="row align-items-center justify-content-center mb-md-12">
-        <div class="featureDetailUp col-md-5 col-12 order-1 order-md-0 text-md-right text-left my-md-0 my-5 py-md-4 px-md-6 bg-lightOp bg-pure rounded">
+        <div class="featureDetailUp col-md-5 col-12 order-1 order-md-0 text-md-right text-left my-md-0 my-2 py-4 px-4 px-md-6 bg-lightOp bg-pure">
           <p class="mb-1 fz-3 fz-md-4 text-primary fw-bold pb-md-0 mb-md-2">
             手工製作
           </p>
@@ -66,15 +66,15 @@
           </p>
         </div>
         <div class="featureImgWrap col-md-5 col-12 order-0 order-md-1 ml-md-2">
-          <img class="featureImg rounded" src="https://hexschool-api.s3.us-west-2.amazonaws.com/custom/MWh5ZwgkbPBQCMqwuW5fspJFNvQ9GpuVQcM3XcuFTlWdeg8Iw1lam2ZZIzp685Fb9pqsIuyn4t3QrS4OLXm7AGlmE0a4LaEM2B8vuOV4vEt5zwm8LRYxPCYyx6PeUVT1.jpg" alt="featureImg">
+          <img class="featureImg rounded obj-c" src="https://hexschool-api.s3.us-west-2.amazonaws.com/custom/MWh5ZwgkbPBQCMqwuW5fspJFNvQ9GpuVQcM3XcuFTlWdeg8Iw1lam2ZZIzp685Fb9pqsIuyn4t3QrS4OLXm7AGlmE0a4LaEM2B8vuOV4vEt5zwm8LRYxPCYyx6PeUVT1.jpg" alt="featureImg">
         </div>
       </div>
 
       <div class="row align-items-center justify-content-center">
         <div class="featureImgWrap col-md-5 col-12 mr-md-2">
-          <img class="featureImg rounded" src="https://hexschool-api.s3.us-west-2.amazonaws.com/custom/ULVqow359EWdAK5wmDbBvGKOr02tAlQlChcVxKIjrfz2umGBYzkcCCAz0z4sbrQW1dxSC0eHiVL9AGXp0GPMvDjmDhqkPn9XuhfbAJBFoJI99Fx2sT8AD1R7jcRtqXUb.jpg" alt="featureImg">
+          <img class="featureImg rounded obj-c" src="https://hexschool-api.s3.us-west-2.amazonaws.com/custom/ULVqow359EWdAK5wmDbBvGKOr02tAlQlChcVxKIjrfz2umGBYzkcCCAz0z4sbrQW1dxSC0eHiVL9AGXp0GPMvDjmDhqkPn9XuhfbAJBFoJI99Fx2sT8AD1R7jcRtqXUb.jpg" alt="featureImg">
         </div>
-        <div class="featureDetailDown col-md-5 col-12 text-left my-md-0 my-5 py-md-4 px-md-6 bg-lightOp bg-pure rounded">
+        <div class="featureDetailDown col-md-5 col-12 text-left my-md-0 mt-2 py-4 px-4 px-md-6 bg-lightOp bg-pure">
           <p class="mb-1 fz-3 fz-md-4 text-primary fw-bold pb-md-0 mb-md-2">
             健康減糖
           </p>

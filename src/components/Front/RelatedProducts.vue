@@ -11,7 +11,7 @@
             <p class="fz-md-2 fz-3 mb-0 fw-bold primary">
               {{ item.title }}
             </p>
-            <p class="fz-2 mb-0 smallLink">
+            <p class="fz-2 mb-0 text-text">
               {{ item.price | money }} 元
             </p>
           </div>

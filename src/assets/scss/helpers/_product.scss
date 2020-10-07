@@ -1,3 +1,20 @@
+.productContentTitle {
+  width: 30%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.productContentSub {
+  width: 70%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+
 .moreProducts {
   .moreProductsTitle {
     &::before {

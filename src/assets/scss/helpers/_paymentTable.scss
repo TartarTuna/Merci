@@ -23,8 +23,8 @@
     .collapse {
         .card-body {
             li img {
-                max-width: 48px;
-                // height: 48px;
+                min-width: 60px;
+                height: 50px;
                 object-fit: cover;
             }
         }

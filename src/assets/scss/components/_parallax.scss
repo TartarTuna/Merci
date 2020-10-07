@@ -1,12 +1,22 @@
 .parallax {
   background: url("https://hexschool-api.s3.us-west-2.amazonaws.com/custom/heXHLY8GT5EsqlfpAvXKDWmEgrf8ibNtY4hfYQcIrwxK4Hp4oKLK4GEdXdimONkbVKY9vtMO1cO1bosj9XUeM6Zb7r4OdeGRw4oDMzGXObKymOHtSUkhAl0MyfjotQRT.jpg")center center no-repeat;
-  min-height: 400px;
+  min-height: 360px;
   background-attachment: fixed;
   background-size: cover;
 
-  .callActive {
-    bottom: 25%;
+  @media (max-width: 426px) {
+      min-height: 240px;
+    }
 
+  .parallaxContent {
+    min-height: 360px;
+
+    @media (max-width: 425px) {
+      min-height: 240px;
+    }
+  }
+
+  .callActive {
     .subscribeBtn {
       width: 25%;
       border: none;

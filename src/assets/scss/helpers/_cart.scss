@@ -1,5 +1,13 @@
+.cartModal {
+  min-height: calc(100vh);
+}
+
 .buylistImg {
   max-width: 150px;
-  max-height: 150px;
+  height: 100px;
   object-fit: cover;
+}
+
+.ideaImg {
+  max-width: 150px;
 }

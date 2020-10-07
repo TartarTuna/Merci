@@ -2,9 +2,14 @@
   .storyImg {
     background-image: url(https://hexschool-api.s3.us-west-2.amazonaws.com/custom/gMlDmxx7wUtqhRaSKLwLJPPhewEZvhNUYeryVxXSWzfWNWTPPon5AJu5TH1LUIfmm5wZ54C1NxWBx2p4NpjvGUsIgXFJ9fbqp8zM3lYsGo56WuL3GlWMXDFx7f1lin05.jpg);
     min-height: 600px;
+    border-radius: 10px;
 
     @media (max-width: 768px) {
-      height: 300px;
+      min-height: 200px;
+    }
+
+    @media (max-width: 670px) {
+      border-radius: 0px;
     }
   }
 
@@ -12,26 +17,36 @@
     background-color: $lightOp;
     
     @media (max-width: 768px) {
-      margin-top: 624px;
+      margin-top: 220px;
       background-color: #fff;
     }
   }
 
   .featureDetailUp {
     margin-right: -56px;
+    border-radius: 10px;
     z-index: 0;
 
     @media (max-width: 768px) {
       margin-right: 0;
     }
+
+    @media (max-width: 670px) {
+      border-radius: 0px;
+    }
   }
 
   .featureDetailDown {
     margin-left: -56px;
+    border-radius: 10px;
     z-index: 0;
 
     @media (max-width: 768px) {
       margin-left: 0;
+    }
+
+    @media (max-width: 670px) {
+      border-radius: 0px;
     }
   }
 

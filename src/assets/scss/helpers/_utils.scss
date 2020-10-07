@@ -1,6 +1,14 @@
 //fonts
+.f-Serif {
+  font-family: 'Noto Serif TC', serif;
+}
+
 .fz-1 {
     font-size: 8px;
+}
+
+.fz-1-1 {
+    font-size: 13px;
 }
 
 .fz-2 {
@@ -15,12 +23,24 @@
     font-size: 32px;
 }
 
+.fz-5 {
+  font-size: 40px;
+}
+
 .fz-6 {
     font-size: 48px;
 }
 
+.fz-7 {
+  font-size: 56px;
+}
+
 .fz-2-1 {
     font-size: 18px;
+}
+
+.fz-3-1 {
+    font-size: 20px;
 }
 
 @media (min-width: 768px) {
@@ -36,8 +56,30 @@
     font-size: 32px;
   }
 
+  .fz-md-5 {
+    font-size: 40px;
+  }
+
+  .fz-md-6 {
+    font-size: 48px;
+  }
+
+  .fz-md-7 {
+    font-size: 57px;
+  }
+
   .fz-md-2-1 {
     font-size: 18px;
+  }
+
+  .fz-md-3-1 {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 426px) {
+  .fz-sm-4 {
+    font-size: 32px;
   }
 }
 
@@ -72,6 +114,10 @@
   letter-spacing: 2px;
 }
 
+.letter-space-4 {
+  letter-spacing: 6px;
+}
+
 //font-weight
 .fw-bold {
     font-weight: 500;
@@ -83,6 +129,10 @@
 
 .fw-400 {
   font-weight: 400;
+}
+
+.fw-600 {
+  font-weight: 600;
 }
 
 // color
@@ -169,8 +219,18 @@
   width: 40%;
 }
 
+.w-60 {
+  width: 60%;
+}
+
 .w-70 {
   width: 70%;
+}
+
+.w-md-20 {
+  @media (min-width: 768px) {
+    width: 20%;
+  }
 }
 
 .w-md-40 {
@@ -191,9 +251,27 @@
   }
 }
 
+.w-md-60 {
+  @media (min-width: 768px) {
+    width: 60%;
+  }
+}
+
 .w-md-80 {
   @media (min-width: 768px) {
     width: 80%;
+  }
+}
+
+.w-md-70 {
+  @media (min-width: 768px) {
+    width: 70%;
+  }
+}
+
+.w-md-30 {
+  @media (min-width: 768px) {
+    width: 30%;
   }
 }
 
@@ -219,6 +297,10 @@
   height: auto;
 }
 
+.v-100 {
+  height: calc(100vh);
+}
+
 .w-100px {
   width: 100px;
 }
@@ -229,6 +311,13 @@
 
 .rounded-50 {
   border-radius: 50px;
+}
+
+.rounded-md-top {
+  @media (min-width: 768px) {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
 }
 
 .bd-round-4 {
@@ -276,7 +365,7 @@
     }
 }
 .storyLink {
-  border: 1px solid $secondary;
+  border: 1px solid $secondaryBtn;
   display: inline-block;
   padding: 8px 32px;
   background-color: none;
@@ -285,12 +374,12 @@
   line-height: 24px;
   border-radius: 50px;
   letter-spacing: 2px;
-  color: $secondary;
+  color: $secondaryBtn;
   cursor: pointer;
   transition: all .3s;
 
   &:hover {
-      background-color: $secondary;
+      background-color: $secondaryBtn;
       color: #ffffff;
   }
 }

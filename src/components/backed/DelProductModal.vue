@@ -52,8 +52,7 @@ export default {
             icon: 'success'
           })
         })
-        .catch(err => {
-          console.log(err)
+        .catch(() => {
           Toast.fire({
             title: '刪除失敗',
             icon: 'error'

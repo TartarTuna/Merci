@@ -2,7 +2,7 @@
   <div class="dashboard">
     <Navbar />
     <div class="container">
-      <router-view v-if="checkSuccess" :token="token"></router-view>
+      <router-view v-if="checkSuccess"></router-view>
     </div>
   </div>
 </template>
@@ -30,12 +30,10 @@ export default {
 
       const api = `${process.env.VUE_APP_APIPATH}auth/check`
       this.$http.post(api, { api_token: this.token })
-        .then(res => {
-          console.log(res)
+        .then(() => {
           this.checkSuccess = true
         })
-        .catch(err => {
-          console.log(err)
+        .catch(() => {
           this.$router.push('/login')
         })
     }

@@ -77,11 +77,18 @@ const routes = [
         component: () => import('../views/backStage/dashboard/Images.vue')
       }
     ]
+  },
+  {
+    path: '*',
+    redirect: '/'
   }
 ]
 
 const router = new VueRouter({
-  routes
+  routes,
+  scrollBehavior () {
+    return { x: 0, y: 0 }
+  }
 })
 
 export default router

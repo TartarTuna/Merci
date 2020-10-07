@@ -1,7 +1,7 @@
 <template>
     <div class="container">
       <loading :active.sync="isLoading"></loading>
-      <div class="row align-items-center">
+      <div class="row align-items-center mt-3 mt-md-5">
         <div class="col-md-7">
           <!-- 商品圖片輪播 -->
           <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -33,7 +33,7 @@
             </ol>
           </nav>
           <!-- 商品資料 -->
-          <h2 class="fw-bold h1 mb-2 letter-space-3">{{ product.title }}</h2>
+          <h2 class="fw-bold h1 mb-2 fz-4 fz-md-6 mt-4 mt-md-0 letter-space-3">{{ product.title }}</h2>
           <div class="fw-300">
             <p v-html="product.content" class="fz-2"></p>
           </div>
@@ -69,7 +69,7 @@
 
         <!-- 產品資訊 -->
         <div class="col-12 mt-5 mt-md-9 mb-md-0 mb-5">
-          <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
             <li class="nav-item">
               <a class="nav-link active" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true">產品資訊</a>
             </li>
@@ -78,33 +78,55 @@
             </li>
           </ul>
           <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active mx-2 mt-10" id="description" role="tabpanel" aria-labelledby="description-tab">
-              <p class="fz-3 text-primary fw-bold mb-4">產品詳細資訊</p>
-              <p v-html="product.description" class="fz-2 fw-300"></p>
+            <div class="tab-pane fade show active mx-2 mx-md-7 mt-10" id="description" role="tabpanel" aria-labelledby="description-tab">
+              <div class="d-flex flex-column flex-md-row pb-4 mb-4 bd-bottom">
+                <p class="fz-3 text-primary fw-bold mb-4 productContentTitle">產品詳細資訊</p>
+                <p v-html="product.description" class="fz-2 fw-300 text-justify productContentSub"></p>
+              </div>
+              <div class="d-flex flex-column flex-md-row mb-md-5">
+                <p class="fz-3 text-primary fw-bold mb-4 productContentTitle">精選產品原料</p>
+                <div class="fz-2 fw-300 text-text text-justify productContentSub">
+                  <p class="mb-3"><span class="fw-bold">臺灣小農優質鮮果</span><br>與臺灣小農合作，確保產地直送的新鮮甜美水果，天然果糖就是最佳甜味劑，減少添加糖、健康無負擔。</p>
+                  <p class="mb-3"><span class="fw-bold">赤藻糖醇</span><br>植物性甜味劑，可以說幾乎沒有熱量，糖尿病患者可做為醣類替代品之用。</p>
+                  <p class="mb-3"><span class="fw-bold">日清製粉 超級全麥粉</span><br>由日本大廠日清製粉製造的全麥麵粉，含有更高的礦物質與營養素。</p>
+                  <p class="mb-3"><span class="fw-bold">比利時百年老店頂級巧克力</span><br>使用非洲最上等的 Forastteros 品種可可豆所製成。富含高純度可可，能夠品嘗到苦味及香氣在口中交錯的濃郁口感。</p>
+                  <p class="mb-3"><span class="fw-bold">臺灣在地放牧蛋</span><br>捨棄傳統格子籠蛋雞飼養，避免雞隻在狹小的空間互相踩踏以及相互染病的狀況，飼養方式採農地自然放牧，友善飼養環境下產出的優質蛋品。</p>
+                </div>
+              </div>
             </div>
-            <div class="tab-pane fade mx-2 mt-10" id="FAQ" role="tabpanel" aria-labelledby="FAQ-tab">
+            <div class="tab-pane fade mx-2 mx-md-7 mt-10" id="FAQ" role="tabpanel" aria-labelledby="FAQ-tab">
               <p class="fz-3 text-primary fw-bold mb-4">產品常見問題</p>
               <!-- Q1 -->
-              <p class="fz-2 fw-300 text-primary mb-2">果醬和糕點可以存放多久？</p>
-              <p class="fz-2 fw-300 text-text pb-4 mb-4 bd-bottom">玫希的所有產品皆無添加防腐劑，開封後請放入冰箱冷藏。糕點及餅乾最佳賞味期限為三天，果醬類開封後最佳賞味期為三個禮拜，提醒您在最佳賞味期限內品嚐，才能確保享用到他最美好的滋味喔！</p>
+              <div class="d-flex flex-column flex-md-row pb-2 mb-4 bd-bottom">
+                <p class="fz-2 fw-300 text-primary mb-2 productContentTitle">果醬和糕點可以存放多久？</p>
+                <p class="fz-2 fw-300 text-text text-justify productContentSub">玫希的所有產品皆無添加防腐劑，開封後請放入冰箱冷藏。糕點及餅乾最佳賞味期限為三天，果醬類開封後最佳賞味期為三個禮拜，提醒您在最佳賞味期限內品嚐，才能確保享用到他最美好的滋味喔！</p>
+              </div>
               <!-- Q2 -->
-              <p class="fz-2 fw-300 text-primary mb-2">果醬有額外添加香料嗎？</p>
-              <p class="fz-2 fw-300 text-text pb-4 mb-4 bd-bottom">手工果醬所有的風味都來自水果本身的特色，絕無額外添加香料或香精。我們堅持以最原始的方始提供您最天然的風味，包準會讓您重新愛上水果的自然甜美。</p>
+              <div class="d-flex flex-column flex-md-row pb-2 mb-4 bd-bottom">
+                <p class="fz-2 fw-300 text-primary mb-2 productContentTitle">果醬有額外添加香料嗎？</p>
+                <p class="fz-2 fw-300 text-text text-justify productContentSub">手工果醬所有的風味都來自水果本身的特色，絕無額外添加香料或香精。我們堅持以最原始的方始提供您最天然的風味，包準會讓您重新愛上水果的自然甜美。</p>
+              </div>
               <!-- Q3 -->
-              <p class="fz-2 fw-300 text-primary mb-2">原料都是有機的嗎？</p>
-              <p class="fz-2 fw-300 text-text pb-4 mb-4 bd-bottom">我們並沒有特別選用有機栽種作物，但所有水果及原料都是創辦人親自探訪原產地，深入了解生產過程，並與生產者多次來回對談協商後才會決定採用。為的就是不要讓消費者被某些冠上「有機」兩字的產品、但實際品質卻不好的東西所迷惑。創辦人親自挑選的原料，我們有信心能讓所有人吃的最安心。</p>
+              <div class="d-flex flex-column flex-md-row pb-2 mb-4 bd-bottom">
+                <p class="fz-2 fw-300 text-primary mb-2 productContentTitle">原料都是有機的嗎？</p>
+                <p class="fz-2 fw-300 text-text text-justify productContentSub">我們並沒有特別選用有機栽種作物，但所有水果及原料都是創辦人親自探訪原產地，深入了解生產過程，並與生產者多次來回對談協商後才會決定採用。為的就是不要讓消費者被某些冠上「有機」兩字的產品、但實際品質卻不好的東西所迷惑。創辦人親自挑選的原料，我們有信心能讓所有人吃的最安心。</p>
+              </div>
               <!-- Q4 -->
-              <p class="fz-2 fw-300 text-primary mb-2">食用果醬時有哪些注意事項？</p>
-              <p class="fz-2 fw-300 text-text pb-4 mb-4 bd-bottom">挖取果醬時請使用乾燥的器具挖取，以防水氣進入容易造成果醬發霉變質。若開封後果醬在氣溫較高的環境下放置過一段時間，請在食用前先挖一點點來確認是否有發霉或發酵的狀況產生，若有上述情況發生，請避免食用。</p>
+              <div class="d-flex flex-column flex-md-row pb-2 mb-4 bd-bottom">
+                <p class="fz-2 fw-300 text-primary mb-2 productContentTitle">食用果醬時有哪些注意事項？</p>
+                <p class="fz-2 fw-300 text-text text-justify productContentSub">挖取果醬時請使用乾燥的器具挖取，以防水氣進入容易造成果醬發霉變質。若開封後果醬在氣溫較高的環境下放置過一段時間，請在食用前先挖一點點來確認是否有發霉或發酵的狀況產生，若有上述情況發生，請避免食用。</p>
+              </div>
               <!-- Q5 -->
-              <p class="fz-2 fw-300 text-primary mb-2">下單後多久會收到？</p>
-              <p class="fz-2 fw-300 text-text pb-4 mb-4 bd-bottom">為了能讓顧客品嘗到最新鮮的美味，玫希的所有手工果醬及糕點都是下單後才開始製作。一般來說，下單後約兩週內可以送達，若訂單數量超過 10 罐以上，我們會另外聯繫您告知預計送達時間。</p>
+              <div class="d-flex flex-column flex-md-row mb-4">
+                <p class="fz-2 fw-300 text-primary mb-2 productContentTitle">下單後多久會收到？</p>
+                <p class="fz-2 fw-300 text-text text-justify productContentSub">為了能讓顧客品嘗到最新鮮的美味，玫希的所有手工果醬及糕點都是下單後才開始製作。一般來說，下單後約兩週內可以送達，若訂單數量超過 10 罐以上，我們會另外聯繫您告知預計送達時間。</p>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- more products -->
-        <div class="moreProducts col-12 my-5 my-md-9">
+        <div class="moreProducts col-12 my-md-5">
           <div class="d-flex justify-content-center">
             <p class="moreProductsTitle d-inline-block position-relative mb-1 fz-3 text-primary fw-bold pb-md-0 mb-md-5 text-center">您可能也會喜歡</p>
           </div>
@@ -151,7 +173,6 @@ export default {
             num: 1
           }
           this.isLoading = false
-          console.log(this.product)
         })
         .catch(() => {
           Toast.fire({
@@ -170,10 +191,10 @@ export default {
         product: item.id,
         quantity: num
       }
-      console.log(cart)
       this.$http.post(api, cart)
         .then(() => {
           this.$bus.$emit('update-total')
+          this.$bus.$emit('get-cart')
           Toast.fire({
             title: '加入購物車成功',
             icon: 'success'
